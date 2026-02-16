@@ -3,12 +3,14 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
+const EASE: [number, number, number, number] = [0.2, 0.8, 0.2, 1];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
   show: (d: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: d, ease: [0.2, 0.8, 0.2, 1] },
+    transition: { duration: 0.7, delay: d, ease: EASE },
   }),
 };
 
@@ -94,7 +96,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
+            transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
             className="relative"
           >
             <div className="glass relative overflow-hidden rounded-3xl p-6">
