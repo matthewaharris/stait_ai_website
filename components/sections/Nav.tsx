@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
@@ -11,10 +12,7 @@ export default function Nav() {
           className="group inline-flex items-center gap-2 font-semibold tracking-tight"
           aria-label="stait.ai home"
         >
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-neutral-200 bg-white shadow-sm">
-            <span className="text-sm font-bold">S</span>
-          </span>
-          <span className="text-base">stait.ai</span>
+          <Image src="/stait-logo.svg" alt="stait logo" width={110} height={82} className="h-9 w-auto" priority />
           <span className="ml-2 hidden rounded-full border border-neutral-200 bg-neutral-50 px-2 py-0.5 text-xs text-neutral-600 sm:inline">
             AI implementation
           </span>

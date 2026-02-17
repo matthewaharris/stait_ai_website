@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import LogoCloud from "@/components/sections/LogoCloud";
@@ -15,10 +16,11 @@ export default function HomePage() {
       <Process />
       <CTA />
       <footer className="border-t border-neutral-200">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-neutral-600">
-            © {new Date().getFullYear()} stait.ai — Practical AI implementation.
-          </p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <Image src="/stait-logo.svg" alt="stait logo" width={86} height={64} className="h-8 w-auto" />
+            <p className="text-sm text-neutral-600">© {new Date().getFullYear()} stait.ai — Practical AI implementation.</p>
+          </div>
           <p className="text-sm text-neutral-600">Boise, Idaho • Serving clients nationwide</p>
         </div>
       </footer>
