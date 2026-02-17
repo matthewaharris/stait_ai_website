@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
+import HeroInteractiveCard from "@/components/sections/HeroInteractiveCard";
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
@@ -69,7 +71,18 @@ export default function Hero() {
 
         <div className="lg:col-span-5">
           <Reveal delayMs={120}>
-            <div className="relative rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <HeroInteractiveCard>
+              <div className="mb-5 rounded-2xl border border-neutral-200/80 bg-neutral-50/80 p-4">
+                <Image
+                  src="/stait-logo.svg"
+                  alt="stait logo"
+                  width={220}
+                  height={165}
+                  className="mx-auto h-16 w-auto sm:h-20"
+                  priority
+                />
+              </div>
+
               <div className="flex items-center justify-between">
                 <div className="text-sm font-medium text-neutral-900">AI Jumpstart (most popular)</div>
                 <div className="rounded-full bg-neutral-900 px-3 py-1 text-xs font-semibold text-white">v1 offer</div>
@@ -112,9 +125,7 @@ export default function Hero() {
                   <Button className="w-full">Start with Jumpstart</Button>
                 </a>
               </div>
-
-              <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-sky-200 to-indigo-200 blur-2xl opacity-70" />
-            </div>
+            </HeroInteractiveCard>
           </Reveal>
         </div>
       </Container>
