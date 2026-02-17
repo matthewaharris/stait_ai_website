@@ -25,6 +25,16 @@ export default function Hero() {
       <Container className="relative grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <Reveal>
+            <div className="inline-flex items-center gap-4 rounded-2xl border border-neutral-200 bg-white px-4 py-3 shadow-sm">
+              <Image src="/stait-logo.svg" alt="stait logo" width={180} height={135} className="h-12 w-auto sm:h-14" priority />
+              <div className="text-sm text-neutral-700">
+                <span className="block text-base font-semibold text-neutral-900">stait.ai</span>
+                Practical AI implementation partner
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delayMs={40}>
             <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-700 shadow-sm">
               <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               Serving Boise + nationwide • SMB focus • Enterprise-ready delivery
@@ -33,7 +43,7 @@ export default function Hero() {
 
           <Reveal delayMs={80}>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
-              AI implementation for growing businesses.
+              stait.ai helps growing businesses implement AI with measurable results.
             </h1>
           </Reveal>
 
