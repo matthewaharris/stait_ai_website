@@ -1,156 +1,123 @@
-"use client";
+import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
+import Reveal from "@/components/ui/Reveal";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
-
-const EASE: [number, number, number, number] = [0.2, 0.8, 0.2, 1];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
-  show: (d: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay: d, ease: EASE },
-  }),
-};
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+      <div className="text-sm text-neutral-600">{label}</div>
+      <div className="mt-1 text-2xl font-semibold tracking-tight">{value}</div>
+    </div>
+  );
+}
 
 export default function Hero() {
   return (
-    <section className="relative">
-      <div aria-hidden className="aurora" />
-      <div aria-hidden className="grid-fade absolute inset-0 opacity-35" />
+    <section className="relative overflow-hidden">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 left-1/2 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-emerald-100 blur-3xl opacity-80" />
+        <div className="absolute -bottom-40 right-[-10%] h-[420px] w-[520px] rounded-full bg-gradient-to-tr from-rose-100 via-amber-100 to-sky-100 blur-3xl opacity-70" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent" />
+      </div>
 
-      <div className="mx-auto max-w-6xl px-4 pb-24 pt-20 md:pt-24">
-        <div className="grid items-start gap-10 md:grid-cols-[1.15fr_0.85fr]">
-          <div>
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0.05}
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-white"
-            >
-              <Sparkles className="h-4 w-4" />
-              Boise-based AI implementation partner
-            </motion.div>
+      <Container className="relative grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-7">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-700 shadow-sm">
+              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              Serving Boise + nationwide • SMB focus • Enterprise-ready delivery
+            </div>
+          </Reveal>
 
-            <motion.h1
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0.15}
-              className="mt-6 text-balance text-4xl font-semibold leading-tight md:text-6xl"
-            >
-              Practical AI.
-              <span className="block bg-gradient-to-r from-[var(--accent2)] via-white to-[var(--accent)] bg-clip-text text-transparent">
-                Measurable results.
+          <Reveal delayMs={80}>
+            <h1 className="mt-5 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
+              AI implementation for growing businesses.
+            </h1>
+          </Reveal>
+
+          <Reveal delayMs={140}>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-700">
+              We design, deploy, and manage practical AI systems that reduce cost, eliminate manual work, and improve
+              customer response —{" "}
+              <span className="font-medium text-neutral-900">
+                without requiring you to hire an in-house AI team.
               </span>
-            </motion.h1>
+            </p>
+          </Reveal>
 
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0.25}
-              className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-[var(--muted)] md:text-lg"
-            >
-              We help growing companies implement AI safely and profitably—without hiring a full ML team. Start with a
-              focused assessment, ship a pilot in weeks, then scale with confidence.
-            </motion.p>
-
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0.35}
-              className="mt-8 flex flex-col gap-3 sm:flex-row"
-            >
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(109,94,243,0.25)] hover:brightness-110 transition"
-              >
-                Book a discovery call <ArrowRight className="h-4 w-4" />
+          <Reveal delayMs={200}>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a href="#contact">
+                <Button size="lg">Book a strategy call</Button>
               </a>
-              <a
-                href="#services"
-                className="inline-flex items-center justify-center rounded-2xl bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition"
-              >
-                See packages
+              <a href="#services">
+                <Button variant="secondary" size="lg">
+                  See services & pricing
+                </Button>
               </a>
-            </motion.div>
+            </div>
+          </Reveal>
 
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0.45}
-              className="mt-10 flex flex-wrap gap-2 text-xs text-[var(--muted)]"
-            >
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">AI readiness</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Company knowledge assistant (RAG)</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Workflow automation</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">AI Ops + governance</span>
-            </motion.div>
-          </div>
+          <Reveal delayMs={260}>
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <Stat label="Typical pilot timeline" value="2–6 weeks" />
+              <Stat label="Setup cost range" value="$12k–$45k" />
+              <Stat label="Ops retainer" value="$2k–$6k/mo" />
+            </div>
+          </Reveal>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
-            className="relative"
-          >
-            <div className="glass relative overflow-hidden rounded-3xl p-6">
-              <div aria-hidden className="absolute -right-24 -top-24 h-60 w-60 rounded-full bg-[var(--accent)]/40 blur-3xl" />
-              <div aria-hidden className="absolute -bottom-24 -left-24 h-60 w-60 rounded-full bg-[var(--accent2)]/35 blur-3xl" />
+        <div className="lg:col-span-5">
+          <Reveal delayMs={120}>
+            <div className="relative rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+              <div className="flex items-center justify-between">
+                <div className="text-sm font-medium text-neutral-900">AI Jumpstart (most popular)</div>
+                <div className="rounded-full bg-neutral-900 px-3 py-1 text-xs font-semibold text-white">v1 offer</div>
+              </div>
 
-              <div className="relative">
-                <div className="text-sm font-semibold">Start here</div>
-                <div className="mt-1 text-2xl font-semibold">AI Jumpstart</div>
-                <div className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
-                  A fast assessment + pilot plan that identifies the highest ROI work, the safest path to production,
-                  and the metrics to prove value.
+              <p className="mt-3 text-sm leading-relaxed text-neutral-700">
+                A focused engagement that turns “AI curiosity” into a working pilot, a measurable ROI model, and a
+                12-month roadmap.
+              </p>
+
+              <div className="mt-5 space-y-3">
+                {[
+                  "Opportunity audit + ROI model",
+                  "One production-grade pilot",
+                  "Security & governance baseline",
+                  "Team enablement + handoff",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-emerald-700">
+                      ✓
+                    </span>
+                    <span className="text-sm text-neutral-800">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                  <div className="text-xs text-neutral-600">Price</div>
+                  <div className="mt-1 text-sm font-semibold">$12k–$25k</div>
                 </div>
-
-                <div className="mt-6 grid gap-3">
-                  {[
-                    { k: "Timeline", v: "2–3 weeks" },
-                    { k: "Deliverables", v: "Roadmap + ROI + pilot spec" },
-                    { k: "Outcome", v: "Clear plan to ship in weeks" },
-                  ].map((r) => (
-                    <div
-                      key={r.k}
-                      className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3"
-                    >
-                      <div className="text-xs text-[var(--muted)]">{r.k}</div>
-                      <div className="text-sm font-semibold">{r.v}</div>
-                    </div>
-                  ))}
+                <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                  <div className="text-xs text-neutral-600">Duration</div>
+                  <div className="mt-1 text-sm font-semibold">6–8 weeks</div>
                 </div>
+              </div>
 
-                <a
-                  href="#contact"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-[var(--bg)] hover:brightness-95 transition"
-                >
-                  Get the scorecard <ArrowRight className="h-4 w-4" />
+              <div className="mt-6">
+                <a href="#contact">
+                  <Button className="w-full">Start with Jumpstart</Button>
                 </a>
               </div>
-            </div>
 
-            <motion.div
-              aria-hidden
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="glass absolute -bottom-8 -left-8 hidden w-56 rounded-3xl p-5 md:block"
-            >
-              <div className="text-xs text-[var(--muted)]">Example pilot</div>
-              <div className="mt-2 text-sm font-semibold">Company knowledge assistant</div>
-              <div className="mt-2 text-xs leading-relaxed text-[var(--muted)]">
-                Secure “ask your docs” with permissions, citations, and analytics.
-              </div>
-            </motion.div>
-          </motion.div>
+              <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-sky-200 to-indigo-200 blur-2xl opacity-70" />
+            </div>
+          </Reveal>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+/* Light, crisp defaults (Option B) */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: white;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.18);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 :root {
   --bg: #0b1020;
   --card: #111a33;
