@@ -14,7 +14,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <Link href="/" className="group inline-flex items-center gap-3 font-semibold tracking-tight" aria-label="stait.ai home">
           <Image
-            src="/stait-logo.png"
+            src="/stait-logo.svg"
             alt="stait logo"
             width={165}
             height={124}
