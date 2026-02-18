@@ -13,7 +13,7 @@ export default function Nav() {
           aria-label="stait.ai home"
         >
           <Image
-            src="/stait-logo.svg"
+            src="/stait-logo.png"
             alt="stait logo"
             width={165}
             height={124}
