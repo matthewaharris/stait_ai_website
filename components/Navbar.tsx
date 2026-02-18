@@ -22,9 +22,6 @@ export default function Navbar() {
             priority
           />
           <span className="hidden text-base font-semibold text-neutral-900 md:inline">stait.ai</span>
-          <span className="hidden rounded-full border border-neutral-200 bg-neutral-50 px-2 py-0.5 text-xs text-neutral-600 lg:inline">
-            AI implementation
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">

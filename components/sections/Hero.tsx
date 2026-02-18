@@ -2,16 +2,18 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
+import HeroNodesBackdrop from "@/components/sections/HeroNodesBackdrop";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0">
+        <HeroNodesBackdrop className="z-10 opacity-100" />
         <div className="absolute -top-24 left-1/2 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-emerald-100 opacity-70 blur-3xl" />
         <div className="absolute -bottom-36 right-[-10%] h-[420px] w-[520px] rounded-full bg-gradient-to-tr from-rose-100 via-amber-100 to-sky-100 opacity-60 blur-3xl" />
       </div>
 
-      <Container className="relative grid gap-10 pb-16 pt-0 sm:pb-20 sm:pt-0 lg:grid-cols-12 lg:gap-12">
+      <Container className="relative z-20 grid gap-10 pb-16 pt-0 sm:pb-20 sm:pt-0 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <Reveal>
             <Image
@@ -63,7 +65,7 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-5 lg:pt-24">
           <Reveal delayMs={120}>
             <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
               <div className="flex items-center justify-between">
