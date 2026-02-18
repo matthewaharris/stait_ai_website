@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
@@ -13,7 +14,11 @@ export default function Hero() {
       <Container className="relative grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-700 shadow-sm">
+            <Image src="/stait-logo.svg" alt="stait logo" width={720} height={540} className="h-60 w-auto sm:h-72" priority />
+          </Reveal>
+
+          <Reveal>
+            <p className="mt-3 inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-700 shadow-sm">
               Boise-first relationships • Nationwide delivery • SMB focus • Enterprise-ready discipline
             </p>
           </Reveal>
