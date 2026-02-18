@@ -2,87 +2,87 @@
 
 import { motion } from "framer-motion";
 import { Lock, Radar, ShieldCheck, Users } from "lucide-react";
+import Container from "@/components/ui/Container";
 
 const items = [
   {
     title: "Safe by default",
     icon: ShieldCheck,
-    body: "Permissions, citations, audit trails, and guardrails are built in—from day one.",
+    body: "Permissions, citations, audit trails, and guardrails are built into delivery.",
   },
   {
-    title: "Observability",
+    title: "Operational observability",
     icon: Radar,
-    body: "We measure quality and usage so the system improves instead of drifting.",
+    body: "Track quality, usage, and ROI so systems improve instead of drifting.",
   },
   {
-    title: "Privacy-first",
+    title: "Privacy and compliance",
     icon: Lock,
-    body: "We design for least-privilege access and deployment options that match your constraints.",
+    body: "Design with least-privilege access and governance controls from day one.",
   },
   {
-    title: "Adoption-focused",
+    title: "Adoption and enablement",
     icon: Users,
-    body: "Tools don’t deliver ROI—workflows + people do. We help teams actually use what we build.",
+    body: "Implementation includes workflows and team readiness, not just tooling.",
   },
 ];
 
+const ease: [number, number, number, number] = [0.2, 0.8, 0.2, 1];
+
 export default function Proof() {
   return (
-    <section id="proof" className="relative mx-auto max-w-6xl px-4 py-24">
-      <div aria-hidden className="absolute inset-0 -z-10">
-        <div className="aurora opacity-40" />
-      </div>
-
-      <div className="glass rounded-3xl p-10">
+    <section id="proof" className="border-y border-neutral-200 bg-white">
+      <Container className="py-16 sm:py-20">
         <div className="grid gap-10 md:grid-cols-[1fr_1.1fr]">
-          <div>
-            <div className="text-sm font-semibold text-[var(--accent2)]">Trust + clarity</div>
-            <h2 className="mt-2 text-3xl font-semibold md:text-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease }}
+          >
+            <div className="text-sm font-semibold text-indigo-700">Proof</div>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
               Enterprise rigor, without the enterprise drag
             </h2>
-            <p className="mt-4 text-[var(--muted)]">
-              If you’ve been burned by “AI pilots” that never ship, you’re not alone. Our goal is to build systems you
-              can run, measure, and improve—safely.
+            <p className="mt-4 text-neutral-700">
+              Enterprise discipline. SMB execution speed.
             </p>
 
-            <div className="mt-7 rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div className="text-sm font-semibold">Founder profile</div>
-              <ul className="mt-3 space-y-2 text-sm text-[var(--muted)]">
+            <div className="mt-6 rounded-3xl border border-neutral-200 bg-neutral-50 p-6">
+              <div className="text-sm font-semibold text-neutral-900">Founder profile</div>
+              <ul className="mt-3 space-y-2 text-sm text-neutral-700">
                 <li>• Engineering leader (20+ years)</li>
-                <li>• BS Computer Science + MBA</li>
-                <li>• Enterprise delivery experience (Intuit)</li>
+                <li>• Senior Software Engineering Manager at Intuit (QuickBooks ecosystem)</li>
+                <li>• BS Computer Science + MBA + Stanford LEAD (innovation)</li>
               </ul>
-              <div className="mt-4 text-xs text-[var(--muted)]">
-                Focus: practical AI adoption, secure delivery, and measurable ROI.
-              </div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {items.map((it, i) => {
-              const Icon = it.icon;
+            {items.map((item, i) => {
+              const Icon = item.icon;
               return (
                 <motion.div
-                  key={it.title}
-                  initial={{ opacity: 0, y: 12 }}
+                  key={item.title}
+                  initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
-                  className="rounded-3xl border border-white/10 bg-[var(--card)]/60 p-6"
+                  transition={{ duration: 0.6, delay: i * 0.08, ease }}
+                  className="rounded-3xl border border-neutral-200 bg-neutral-50 p-6"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                      <Icon className="h-5 w-5" />
+                    <div className="rounded-xl border border-neutral-200 bg-white p-2">
+                      <Icon className="h-4 w-4 text-neutral-700" />
                     </div>
-                    <div className="text-sm font-semibold">{it.title}</div>
+                    <div className="text-sm font-semibold text-neutral-900">{item.title}</div>
                   </div>
-                  <p className="mt-3 text-sm text-[var(--muted)]">{it.body}</p>
+                  <p className="mt-3 text-sm text-neutral-700">{item.body}</p>
                 </motion.div>
               );
             })}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

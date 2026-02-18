@@ -22,16 +22,17 @@ export default function CTA() {
 
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                   <a href="mailto:hello@stait.ai?subject=stait.ai%20strategy%20call">
-                    <Button size="lg">Email to schedule</Button>
+                    <Button size="lg">Book a strategy call</Button>
                   </a>
-                  <a href="#services">
+                  <a href="/ai-readiness">
                     <Button variant="secondary" size="lg">
-                      Review services
+                      Take the AI Readiness Assessment
                     </Button>
                   </a>
                 </div>
 
                 <p className="mt-4 text-sm text-neutral-600">Prefer Boise in-person? We can meet locally too.</p>
+                <p className="mt-1 text-sm text-neutral-600">Serving clients nationwide (remote-friendly)</p>
               </div>
 
               <div className="lg:col-span-5">
