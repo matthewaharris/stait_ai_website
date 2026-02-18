@@ -56,6 +56,8 @@ export default function HeroNodesBackdrop({ className }: { className?: string })
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
+      const now = performance.now();
+      const pulse = 0.65 + 0.35 * Math.sin(now * 0.0015);
 
       for (const n of nodes) {
         n.x += n.vx;
@@ -73,7 +75,7 @@ export default function HeroNodesBackdrop({ className }: { className?: string })
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < LINK_DISTANCE) {
-            const alpha = (1 - dist / LINK_DISTANCE) * 0.4;
+            const alpha = (1 - dist / LINK_DISTANCE) * 0.4 * pulse;
             ctx.strokeStyle = `rgba(59, 130, 246, ${alpha})`;
             ctx.lineWidth = 1.2;
             ctx.beginPath();
@@ -85,7 +87,8 @@ export default function HeroNodesBackdrop({ className }: { className?: string })
       }
 
       for (const n of nodes) {
-        ctx.fillStyle = "rgba(30, 64, 175, 0.5)";
+        const nodePulse = 0.45 + 0.4 * Math.sin(now * 0.0019 + n.x * 0.02 + n.y * 0.02);
+        ctx.fillStyle = `rgba(30, 64, 175, ${nodePulse})`;
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fill();
