@@ -2,124 +2,106 @@
 
 import { motion } from "framer-motion";
 import { Shield, Wand2, Wrench } from "lucide-react";
+import Container from "@/components/ui/Container";
 
-const EASE: [number, number, number, number] = [0.2, 0.8, 0.2, 1];
+const ease: [number, number, number, number] = [0.2, 0.8, 0.2, 1];
 
 const cards = [
   {
     badge: "START HERE",
-    badgeColor: "bg-[var(--accent2)] text-[var(--bg)]",
     title: "AI Jumpstart",
-    price: "$15k–$25k",
+    price: "$12k–$25k",
     icon: Wand2,
     points: [
-      "AI readiness assessment",
-      "Use-case scoring + ROI model",
-      "Pilot spec + architecture outline",
-      "Exec readout + 12-month roadmap",
+      "AI readiness assessment + ROI model",
+      "One production-grade pilot",
+      "Governance baseline + risk controls",
+      "90-day execution roadmap",
     ],
   },
   {
     badge: "BUILD",
-    badgeColor: "bg-[var(--accent)] text-white",
     title: "Company GPT",
-    price: "$25k–$60k",
+    price: "$15k–$45k",
     icon: Shield,
     points: [
       "Secure knowledge assistant (RAG)",
-      "Permissions + citations",
-      "Integrations (docs, CRM, ticketing)",
-      "Analytics + adoption enablement",
+      "Faster internal operations and response time",
+      "Role-based permissions + auditability",
+      "Scalable capability for future workflows",
     ],
   },
   {
     badge: "OPERATE",
-    badgeColor: "bg-amber-200 text-[var(--bg)]",
     title: "AI Ops Retainer",
-    price: "$2k–$7k / mo",
+    price: "$2k–$6k/mo",
     icon: Wrench,
     points: [
-      "Monitoring + tuning",
-      "Quality + safety reviews",
-      "Small enhancements",
-      "Quarterly optimization roadmap",
+      "Sustained quality, reliability, and performance",
+      "Continuous optimization and cost control",
+      "Governance updates as operations evolve",
+      "Quarterly improvement roadmap",
     ],
   },
 ];
 
 export default function Packages() {
   return (
-    <section id="services" className="relative mx-auto max-w-6xl px-4 py-24">
-      <div className="glass rounded-3xl border border-white/10 bg-white/5 p-10">
-        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="text-sm font-semibold text-[var(--accent2)]">Packages</div>
-            <h2 className="mt-2 text-3xl font-semibold md:text-4xl">Easy to buy. Easy to scale.</h2>
-            <p className="mt-3 max-w-2xl text-[var(--muted)]">
-              Pick a clean entry point, ship a pilot quickly, and expand only after value is proven.
-            </p>
-          </div>
-          <a
-            href="#contact"
-            className="mt-6 inline-flex w-fit items-center justify-center rounded-2xl bg-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/15 transition"
-          >
-            Request pricing + scope
-          </a>
-        </div>
+    <section id="services" className="border-y border-neutral-200 bg-neutral-50">
+      <Container className="py-16 sm:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease }}
+          className="max-w-3xl"
+        >
+          <div className="text-sm font-semibold text-indigo-700">Services</div>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">Start small, prove ROI, then scale.</h2>
+          <p className="mt-3 text-neutral-700">
+            Each package is built to deliver immediate operational efficiency while creating strategic capability you
+            can compound over time.
+          </p>
+        </motion.div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {cards.map((c, i) => {
-            const Icon = c.icon;
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          {cards.map((card, i) => {
+            const Icon = card.icon;
             return (
               <motion.div
-                key={c.title}
+                key={card.title}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--card)]/60 p-6"
+                transition={{ duration: 0.6, delay: i * 0.08, ease }}
+                className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm"
               >
-                <div
-                  aria-hidden
-                  className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-white/5 blur-2xl group-hover:bg-white/10 transition"
-                />
-
-                <div className="relative">
-                  <div
-                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${c.badgeColor}`}
-                  >
-                    {c.badge}
+                <div className="inline-flex rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700">
+                  {card.badge}
+                </div>
+                <div className="mt-4 flex items-start justify-between gap-4">
+                  <div>
+                    <div className="text-xl font-semibold text-neutral-950">{card.title}</div>
+                    <div className="mt-1 text-sm text-neutral-600">{card.price}</div>
                   </div>
-
-                  <div className="mt-4 flex items-center justify-between">
-                    <div>
-                      <div className="text-xl font-semibold">{c.title}</div>
-                      <div className="mt-1 text-sm text-[var(--muted)]">{c.price}</div>
-                    </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                  </div>
-
-                  <ul className="mt-6 space-y-3 text-sm text-[var(--muted)]">
-                    {c.points.map((p) => (
-                      <li key={p} className="flex gap-2">
-                        <span className="mt-1 inline-block h-1.5 w-1.5 flex-none rounded-full bg-white/35" />
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-[var(--muted)]">
-                    <span className="font-semibold text-white">Includes governance:</span> permissions,
-                    auditability, and safe defaults.
+                  <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-2">
+                    <Icon className="h-4 w-4 text-neutral-700" />
                   </div>
                 </div>
+
+                <ul className="mt-5 space-y-2 text-sm text-neutral-700">
+                  {card.points.map((point) => (
+                    <li key={point} className="flex gap-2">
+                      <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             );
           })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
