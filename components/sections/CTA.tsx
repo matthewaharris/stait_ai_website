@@ -31,8 +31,12 @@ export default function CTA() {
                   </a>
                 </div>
 
-                <p className="mt-4 text-sm text-neutral-600">Prefer Boise in-person? We can meet locally too.</p>
-                <p className="mt-1 text-sm text-neutral-600">Serving clients nationwide (remote-friendly)</p>
+                <p className="mt-4 text-sm text-neutral-600">
+                  Boise meetings available • Serving clients nationwide (remote-friendly)
+                </p>
+                <div className="mt-3 inline-flex rounded-xl border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs text-indigo-900">
+                  Assessment pricing: $1,500–$2,500 • Boise cohort: $1,250 limited
+                </div>
               </div>
 
               <div className="lg:col-span-5">

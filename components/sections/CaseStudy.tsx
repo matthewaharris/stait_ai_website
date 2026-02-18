@@ -17,8 +17,9 @@ export default function CaseStudy() {
           transition={{ duration: 0.6, ease }}
           className="rounded-3xl border border-neutral-200 bg-neutral-50 p-8 shadow-sm sm:p-10"
         >
-          <p className="text-sm font-semibold text-neutral-600">Modeled case study: Regional Accounting Firm (35 employees)</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-neutral-950">From seasonal bottleneck to scalable operations</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-neutral-950">
+            Modeled case study: Regional Accounting Firm (35 employees)
+          </h2>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-neutral-200 bg-white p-5">

@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+
+export const metadata: Metadata = {
+  title: "Services | stait.ai",
+  description:
+    "AI Readiness & Opportunity Assessment, AI Jumpstart pilots, Company Knowledge AI, and AI Ops Retainer services for growing businesses.",
+};
 
 export default function ServicesPage() {
   return (
@@ -17,6 +24,17 @@ export default function ServicesPage() {
         </div>
 
         <div className="mt-10 grid gap-6">
+          <section className="rounded-3xl border border-indigo-200 bg-indigo-50 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold text-indigo-950">AI Readiness &amp; Opportunity Assessment</h2>
+            <p className="mt-1 text-sm text-indigo-900/90">$1,500–$2,500 • Boise cohort $1,250 limited • 1–2 weeks</p>
+            <ul className="mt-4 space-y-2 text-sm text-indigo-900/90">
+              <li>• Workflow and bottleneck audit</li>
+              <li>• Opportunity map with ROI estimates</li>
+              <li>• Governance and risk baseline</li>
+              <li>• Prioritized implementation roadmap</li>
+            </ul>
+          </section>
+
           <section className="rounded-3xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold">AI Jumpstart</h2>
             <p className="mt-1 text-sm text-neutral-600">6–8 weeks • $12k–$25k</p>

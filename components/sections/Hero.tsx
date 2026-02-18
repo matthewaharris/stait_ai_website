@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
@@ -46,21 +47,21 @@ export default function Hero() {
 
           <Reveal delayMs={160}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-700">
-              We help growing companies implement AI safely and profitably—without hiring an in-house AI team. Start
-              with a focused assessment, ship a pilot in weeks, then scale with confidence.
+              We design, deploy, and manage practical AI systems that eliminate operational bottlenecks while
+              positioning your business to scale intelligently — without hiring an in-house AI team.
             </p>
           </Reveal>
 
           <Reveal delayMs={220}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a href="#contact">
+              <Link href="/#contact">
                 <Button size="lg">Book a strategy call</Button>
-              </a>
-              <a href="/ai-readiness">
+              </Link>
+              <Link href="/ai-readiness">
                 <Button variant="secondary" size="lg">
                   Take the AI Readiness Assessment
                 </Button>
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -71,28 +72,17 @@ export default function Hero() {
               <div className="flex items-center justify-between">
                 <div className="text-sm font-semibold text-neutral-900">Start here</div>
                 <div className="rounded-full bg-neutral-900 px-3 py-1 text-xs font-semibold text-white">
-                  AI Jumpstart
+                  Assessment Offer
                 </div>
               </div>
 
               <p className="mt-4 text-sm leading-relaxed text-neutral-700">
-                A focused engagement that turns curiosity into an execution plan, one production-grade pilot, and a
-                roadmap for long-term advantage.
+                AI Readiness &amp; Opportunity Assessment — $1,500–$2,500 (Boise cohort $1,250 limited) — 1–2 weeks
               </p>
 
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                  <div className="text-xs text-neutral-600">Timeline</div>
-                  <div className="mt-1 text-sm font-semibold text-neutral-900">6–8 weeks</div>
-                </div>
-                <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                  <div className="text-xs text-neutral-600">Price</div>
-                  <div className="mt-1 text-sm font-semibold text-neutral-900">$12k–$25k</div>
-                </div>
-              </div>
-
               <div className="mt-6 rounded-2xl border border-neutral-200 bg-neutral-50 p-4 text-sm text-neutral-700">
-                Includes assessment, ROI framing, governance baseline, pilot design, and implementation plan.
+                Deliverables include workflow review, opportunity map, ROI estimate, governance baseline, and a
+                prioritized 90-day AI action plan.
               </div>
             </div>
           </Reveal>

@@ -11,6 +11,7 @@ const cards = [
     badge: "START HERE",
     title: "AI Jumpstart",
     price: "$12k–$25k",
+    timeline: "6–8 weeks",
     icon: Wand2,
     points: [
       "AI readiness assessment + ROI model",
@@ -83,6 +84,7 @@ export default function Packages() {
                   <div>
                     <div className="text-xl font-semibold text-neutral-950">{card.title}</div>
                     <div className="mt-1 text-sm text-neutral-600">{card.price}</div>
+                    {"timeline" in card ? <div className="text-xs text-neutral-500">{card.timeline}</div> : null}
                   </div>
                   <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-2">
                     <Icon className="h-4 w-4 text-neutral-700" />
