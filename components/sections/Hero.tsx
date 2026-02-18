@@ -11,10 +11,17 @@ export default function Hero() {
         <div className="absolute -bottom-36 right-[-10%] h-[420px] w-[520px] rounded-full bg-gradient-to-tr from-rose-100 via-amber-100 to-sky-100 opacity-60 blur-3xl" />
       </div>
 
-      <Container className="relative grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12">
+      <Container className="relative grid gap-10 pb-16 pt-1 sm:pb-20 sm:pt-2 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <Reveal>
-            <Image src="/stait-logo.svg" alt="stait logo" width={720} height={540} className="h-60 w-auto sm:h-72" priority />
+            <Image
+              src="/stait-logo.svg?v=2"
+              alt="stait logo"
+              width={720}
+              height={540}
+              className="-mt-4 h-60 w-auto sm:-mt-6 sm:h-72"
+              priority
+            />
           </Reveal>
 
           <Reveal>

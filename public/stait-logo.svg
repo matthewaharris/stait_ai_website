@@ -13,8 +13,10 @@
   <g stroke="url(#staitGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M512 249L352 342V527L512 619L672 527V342L512 249Z"/>
     <path d="M352 342L422 383L512 342L602 383L672 342"/>
+    <path d="M512 249V342"/>
     <path d="M422 383V476L512 527V619"/>
     <path d="M602 383V476L512 527"/>
+    <path d="M422 476L512 527L602 476"/>
     <path d="M352 527L512 619L672 527"/>
   </g>
 
