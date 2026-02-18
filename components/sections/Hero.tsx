@@ -25,13 +25,7 @@ export default function Hero() {
       <Container className="relative grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <Reveal>
-            <div className="inline-flex items-center gap-4 rounded-2xl border border-neutral-200 bg-white px-4 py-3 shadow-sm">
-              <Image src="/stait-logo.svg" alt="stait logo" width={180} height={135} className="h-12 w-auto sm:h-14" priority />
-              <div className="text-sm text-neutral-700">
-                <span className="block text-base font-semibold text-neutral-900">stait.ai</span>
-                Practical AI implementation partner
-              </div>
-            </div>
+            <Image src="/stait-logo.svg" alt="stait logo" width={240} height={180} className="h-20 w-auto sm:h-24" priority />
           </Reveal>
 
           <Reveal delayMs={40}>
@@ -82,17 +76,6 @@ export default function Hero() {
         <div className="lg:col-span-5">
           <Reveal delayMs={120}>
             <HeroInteractiveCard>
-              <div className="mb-5 rounded-2xl border border-neutral-200/80 bg-neutral-50/80 p-4">
-                <Image
-                  src="/stait-logo.svg"
-                  alt="stait logo"
-                  width={220}
-                  height={165}
-                  className="mx-auto h-16 w-auto sm:h-20"
-                  priority
-                />
-              </div>
-
               <div className="flex items-center justify-between">
                 <div className="text-sm font-medium text-neutral-900">AI Jumpstart (most popular)</div>
                 <div className="rounded-full bg-neutral-900 px-3 py-1 text-xs font-semibold text-white">v1 offer</div>
