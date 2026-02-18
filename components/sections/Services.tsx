@@ -1,117 +1,118 @@
-"use client";
+import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
+import Button from "@/components/ui/Button";
 
-import { motion } from "framer-motion";
-import { Shield, Wand2, Wrench } from "lucide-react";
+function Card({
+  title,
+  price,
+  description,
+  bullets,
+  accent,
+}: {
+  title: string;
+  price: string;
+  description: string;
+  bullets: string[];
+  accent: "emerald" | "indigo" | "neutral";
+}) {
+  const accentClass =
+    accent === "emerald"
+      ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+      : accent === "indigo"
+        ? "bg-indigo-50 text-indigo-800 border-indigo-200"
+        : "bg-neutral-50 text-neutral-800 border-neutral-200";
 
-const cards = [
-  {
-    badge: "START HERE",
-    badgeColor: "bg-[var(--accent2)] text-[var(--bg)]",
-    title: "AI Jumpstart",
-    price: "$15k–$25k",
-    icon: Wand2,
-    points: [
-      "AI readiness assessment",
-      "Use-case scoring + ROI model",
-      "Pilot spec + architecture outline",
-      "Exec readout + 12-month roadmap",
-    ],
-  },
-  {
-    badge: "BUILD",
-    badgeColor: "bg-[var(--accent)] text-white",
-    title: "Company GPT",
-    price: "$25k–$60k",
-    icon: Shield,
-    points: [
-      "Secure knowledge assistant (RAG)",
-      "Permissions + citations",
-      "Integrations (docs, CRM, ticketing)",
-      "Analytics + adoption enablement",
-    ],
-  },
-  {
-    badge: "OPERATE",
-    badgeColor: "bg-amber-200 text-[var(--bg)]",
-    title: "AI Ops Retainer",
-    price: "$2k–$7k / mo",
-    icon: Wrench,
-    points: [
-      "Monitoring + tuning",
-      "Quality + safety reviews",
-      "Small enhancements",
-      "Quarterly optimization roadmap",
-    ],
-  },
-];
+  return (
+    <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <div className="text-base font-semibold tracking-tight">{title}</div>
+          <div className="mt-2 text-sm text-neutral-700">{description}</div>
+        </div>
+        <div className={`shrink-0 rounded-full border px-3 py-1 text-xs font-semibold ${accentClass}`}>{price}</div>
+      </div>
+      <div className="mt-5 space-y-2">
+        {bullets.map((b) => (
+          <div key={b} className="flex items-start gap-3 text-sm text-neutral-800">
+            <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-neutral-100 text-neutral-700">
+              →
+            </span>
+            <span>{b}</span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-6">
+        <a href="#contact">
+          <Button variant="secondary" className="w-full">
+            Talk about this
+          </Button>
+        </a>
+      </div>
+    </div>
+  );
+}
 
 export default function Services() {
   return (
-    <section id="services" className="relative mx-auto max-w-6xl px-4 py-24">
-      <div className="glass rounded-3xl border border-white/10 bg-white/5 p-10">
-        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="text-sm font-semibold text-[var(--accent2)]">Packages</div>
-            <h2 className="mt-2 text-3xl font-semibold md:text-4xl">Easy to buy. Easy to scale.</h2>
-            <p className="mt-3 max-w-2xl text-[var(--muted)]">
-              Pick a clean entry point, ship a pilot quickly, and expand only after value is proven.
+    <section id="services">
+      <Container className="py-16 sm:py-20">
+        <Reveal>
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-semibold tracking-tight">
+              Services designed for SMB speed — built with enterprise discipline.
+            </h2>
+            <p className="mt-4 text-neutral-700">
+              Start small, prove ROI, then scale. We’ll meet you where you are: low technical overhead, high
+              operational impact.
             </p>
           </div>
-          <a
-            href="#contact"
-            className="mt-6 inline-flex w-fit items-center justify-center rounded-2xl bg-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/15 transition"
-          >
-            Request pricing + scope
-          </a>
+        </Reveal>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <Reveal delayMs={60}>
+            <Card
+              title="AI Jumpstart"
+              price="$12k–$25k"
+              description="Your fastest path to a real pilot, ROI model, and roadmap."
+              bullets={[
+                "Opportunity audit + ROI model",
+                "One pilot in production",
+                "Security baseline + governance",
+                "Team enablement + handoff",
+              ]}
+              accent="emerald"
+            />
+          </Reveal>
+          <Reveal delayMs={120}>
+            <Card
+              title="Company Knowledge AI"
+              price="$15k–$45k"
+              description="A secure, private assistant trained on your policies, SOPs, and docs."
+              bullets={[
+                "Document ingestion + search",
+                "Role-based access + logging",
+                "Answer quality tuning",
+                "Teams/Slack or web UI",
+              ]}
+              accent="indigo"
+            />
+          </Reveal>
+          <Reveal delayMs={180}>
+            <Card
+              title="AI Ops Retainer"
+              price="$2k–$6k/mo"
+              description="Monitoring, optimization, and new automations each month."
+              bullets={[
+                "Quality + cost monitoring",
+                "Prompt + workflow improvements",
+                "Governance updates",
+                "Quarterly roadmap refresh",
+              ]}
+              accent="neutral"
+            />
+          </Reveal>
         </div>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {cards.map((c, i) => {
-            const Icon = c.icon;
-            return (
-              <motion.div
-                key={c.title}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--card)]/60 p-6"
-              >
-                <div aria-hidden className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-white/5 blur-2xl group-hover:bg-white/10 transition" />
-
-                <div className="relative">
-                  <div className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${c.badgeColor}`}>
-                    {c.badge}
-                  </div>
-
-                  <div className="mt-4 flex items-center justify-between">
-                    <div>
-                      <div className="text-xl font-semibold">{c.title}</div>
-                      <div className="mt-1 text-sm text-[var(--muted)]">{c.price}</div>
-                    </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                  </div>
-
-                  <ul className="mt-6 space-y-3 text-sm text-[var(--muted)]">
-                    {c.points.map((p) => (
-                      <li key={p} className="flex gap-2">
-                        <span className="mt-1 inline-block h-1.5 w-1.5 flex-none rounded-full bg-white/35" />
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-[var(--muted)]">
-                    <span className="font-semibold text-white">Includes governance:</span> permissions, auditability, and safe defaults.
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
+      </Container>
     </section>
   );
 }

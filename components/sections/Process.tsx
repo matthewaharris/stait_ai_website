@@ -1,91 +1,73 @@
-"use client";
+import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 
-import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
-
-const steps = [
-  {
-    title: "Diagnose",
-    meta: "Discovery + workflow mapping",
-    points: [
-      "Identify top friction and business KPIs",
-      "Review data, systems, and constraints",
-      "Score use cases by ROI + feasibility",
-    ],
-  },
-  {
-    title: "Pilot",
-    meta: "2–6 weeks to measurable value",
-    points: [
-      "Build a focused MVP with guardrails",
-      "Measure impact against a KPI",
-      "Define production-ready requirements",
-    ],
-  },
-  {
-    title: "Production",
-    meta: "Harden + integrate",
-    points: [
-      "Security, permissions, and auditability",
-      "Integrations (docs, CRM, ticketing, email)",
-      "Monitoring + quality checks",
-    ],
-  },
-  {
-    title: "AI Ops",
-    meta: "Continuous improvement",
-    points: [
-      "Ongoing tuning, prompts, and evaluation",
-      "Quarterly roadmap + new use cases",
-      "Adoption support + change management",
-    ],
-  },
-];
+function Step({
+  n,
+  title,
+  body,
+}: {
+  n: string;
+  title: string;
+  body: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <div className="flex items-center justify-between">
+        <div className="text-sm font-semibold text-neutral-900">{title}</div>
+        <div className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-semibold text-neutral-700">
+          {n}
+        </div>
+      </div>
+      <p className="mt-3 text-sm leading-relaxed text-neutral-700">{body}</p>
+    </div>
+  );
+}
 
 export default function Process() {
   return (
-    <section id="process" className="mx-auto max-w-6xl px-4 py-24">
-      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div>
-          <div className="text-sm font-semibold text-[var(--accent2)]">How we work</div>
-          <h2 className="mt-2 text-3xl font-semibold md:text-4xl">A simple path from interest to impact</h2>
-          <p className="mt-3 max-w-2xl text-[var(--muted)]">
-            We optimize for short cycles, clear ownership, and safe scaling.
-          </p>
+    <section id="process" className="border-y border-neutral-200 bg-neutral-50">
+      <Container className="py-16 sm:py-20">
+        <Reveal>
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-semibold tracking-tight">A delivery model that keeps AI practical.</h2>
+            <p className="mt-4 text-neutral-700">
+              We focus on the shortest path to measurable impact — while keeping risk, security, and maintainability
+              front-and-center.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-4">
+          <Reveal delayMs={60}>
+            <Step
+              n="01"
+              title="Diagnose"
+              body="Map workflows, find bottlenecks, and size ROI. Choose a pilot that pays back fast."
+            />
+          </Reveal>
+          <Reveal delayMs={120}>
+            <Step
+              n="02"
+              title="Pilot"
+              body="Build one production-grade use case with metrics, guardrails, and stakeholder buy-in."
+            />
+          </Reveal>
+          <Reveal delayMs={180}>
+            <Step
+              n="03"
+              title="Productionize"
+              body="Harden reliability, security, and operations. Integrate with the tools your team already uses."
+            />
+          </Reveal>
+          <Reveal delayMs={240}>
+            <Step
+              n="04"
+              title="AI Ops"
+              body="Measure quality + cost over time. Improve, expand, and keep governance current as the business grows."
+            />
+          </Reveal>
         </div>
-      </div>
-
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {steps.map((s, i) => (
-          <motion.div
-            key={s.title}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
-            className="glass rounded-3xl p-7"
-          >
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <div className="text-xl font-semibold">{i + 1}. {s.title}</div>
-                <div className="mt-1 text-sm text-[var(--muted)]">{s.meta}</div>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-[var(--accent2)]">
-                {i === 0 ? "START" : i === 3 ? "ONGOING" : "SHIP"}
-              </div>
-            </div>
-
-            <ul className="mt-6 space-y-3 text-sm text-[var(--muted)]">
-              {s.points.map((p) => (
-                <li key={p} className="flex gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-white/50" />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
-      </div>
+      </Container>
     </section>
   );
 }

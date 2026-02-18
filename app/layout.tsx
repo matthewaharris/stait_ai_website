@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description:
     "AI strategy, implementation, AI Ops, and governance for growing businesses. Based in Boise, Idaho.",
   metadataBase: new URL("https://stait.ai"),
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: ["/icon.svg"],
+    apple: ["/icon.svg"],
+  },
 };
 
 export default function RootLayout({
