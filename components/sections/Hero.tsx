@@ -18,13 +18,13 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <HeroNodesBackdrop className="opacity-75" />
-        <div className="absolute -top-24 left-1/2 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-emerald-100 blur-3xl opacity-80" />
-        <div className="absolute -bottom-40 right-[-10%] h-[420px] w-[520px] rounded-full bg-gradient-to-tr from-rose-100 via-amber-100 to-sky-100 blur-3xl opacity-70" />
+        <div className="absolute -top-24 left-1/2 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-emerald-100 blur-3xl opacity-70" />
+        <div className="absolute -bottom-40 right-[-10%] h-[420px] w-[520px] rounded-full bg-gradient-to-tr from-rose-100 via-amber-100 to-sky-100 blur-3xl opacity-60" />
+        <HeroNodesBackdrop className="z-10 opacity-100" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent" />
       </div>
 
-      <Container className="relative grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12">
+      <Container className="relative z-20 grid gap-10 pb-16 pt-2 sm:pb-20 sm:pt-4 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <Reveal>
             <Image src="/stait-logo.svg" alt="stait logo" width={720} height={540} className="h-60 w-auto sm:h-72" priority />

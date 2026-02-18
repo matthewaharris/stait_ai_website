@@ -11,8 +11,8 @@ type NodePoint = {
   r: number;
 };
 
-const NODE_COUNT = 18;
-const LINK_DISTANCE = 150;
+const NODE_COUNT = 28;
+const LINK_DISTANCE = 220;
 
 export default function HeroNodesBackdrop({ className }: { className?: string }) {
   const ref = useRef<HTMLCanvasElement | null>(null);
@@ -46,9 +46,9 @@ export default function HeroNodesBackdrop({ className }: { className?: string })
           nodes.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-            r: 1.6 + Math.random() * 1.6,
+            vx: (Math.random() - 0.5) * 0.45,
+            vy: (Math.random() - 0.5) * 0.45,
+            r: 2 + Math.random() * 1.8,
           });
         }
       }
@@ -73,9 +73,9 @@ export default function HeroNodesBackdrop({ className }: { className?: string })
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < LINK_DISTANCE) {
-            const alpha = (1 - dist / LINK_DISTANCE) * 0.22;
-            ctx.strokeStyle = `rgba(71, 85, 105, ${alpha})`;
-            ctx.lineWidth = 1;
+            const alpha = (1 - dist / LINK_DISTANCE) * 0.4;
+            ctx.strokeStyle = `rgba(59, 130, 246, ${alpha})`;
+            ctx.lineWidth = 1.2;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -85,7 +85,7 @@ export default function HeroNodesBackdrop({ className }: { className?: string })
       }
 
       for (const n of nodes) {
-        ctx.fillStyle = "rgba(30, 64, 175, 0.28)";
+        ctx.fillStyle = "rgba(30, 64, 175, 0.5)";
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fill();
@@ -109,7 +109,7 @@ export default function HeroNodesBackdrop({ className }: { className?: string })
       ref={ref}
       aria-hidden
       className={cn(
-        "absolute inset-0 h-full w-full [mask-image:radial-gradient(circle_at_50%_45%,black,transparent_82%)]",
+        "absolute inset-0 h-full w-full [mask-image:radial-gradient(circle_at_50%_45%,black,transparent_92%)]",
         className,
       )}
     />
