@@ -51,9 +51,9 @@ export default function Proof() {
             <div className="mt-6 rounded-3xl border border-neutral-200 bg-neutral-50 p-6">
               <div className="text-sm font-semibold text-neutral-900">Founder profile</div>
               <ul className="mt-3 space-y-2 text-sm text-neutral-700">
-                <li>• Engineering leader (20+ years)</li>
+                <li>• 20+ years engineering leadership</li>
                 <li>• Senior Software Engineering Manager at Intuit (QuickBooks ecosystem)</li>
-                <li>• BS Computer Science + MBA + Stanford LEAD (innovation)</li>
+                <li>• BS CS + MBA + Stanford LEAD</li>
               </ul>
             </div>
           </motion.div>

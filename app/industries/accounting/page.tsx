@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+
+export const metadata: Metadata = {
+  title: "AI for Accounting Firms | stait.ai",
+  description:
+    "Practical AI implementation for accounting firms: intake automation, knowledge search, response speed, and measurable productivity lift.",
+};
 
 export default function AccountingIndustryPage() {
   return (

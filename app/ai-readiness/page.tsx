@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/ui/Container";
 import AIReadinessForm from "@/components/forms/AIReadinessForm";
+
+export const metadata: Metadata = {
+  title: "AI Readiness Assessment | stait.ai",
+  description:
+    "Take the 10-question AI readiness assessment to get a score tier and next-step recommendations for implementation.",
+};
 
 export default function AIReadinessPage() {
   return (
