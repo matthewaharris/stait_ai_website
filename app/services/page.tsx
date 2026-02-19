@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Services | stait.ai",
+  title: "Services",
   description:
     "AI Readiness & Opportunity Assessment, AI Jumpstart pilots, Company Knowledge AI, and AI Ops Retainer services for growing businesses.",
 };
