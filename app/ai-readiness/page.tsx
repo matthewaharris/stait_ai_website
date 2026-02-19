@@ -5,7 +5,7 @@ import Container from "@/components/ui/Container";
 import AIReadinessForm from "@/components/forms/AIReadinessForm";
 
 export const metadata: Metadata = {
-  title: "AI Readiness Assessment | stait.ai",
+  title: "AI Readiness Assessment",
   description:
     "Take the 10-question AI readiness assessment to get a score tier and next-step recommendations for implementation.",
 };

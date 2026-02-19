@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://stait.ai";
+  const base = "https://www.stait.ai";
 
   return [
     { url: `${base}/`, changeFrequency: "weekly", priority: 1 },

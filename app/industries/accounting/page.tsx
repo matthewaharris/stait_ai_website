@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "AI for Accounting Firms | stait.ai",
+  title: "AI for Accounting Firms",
   description:
     "Practical AI implementation for accounting firms: intake automation, knowledge search, response speed, and measurable productivity lift.",
 };
