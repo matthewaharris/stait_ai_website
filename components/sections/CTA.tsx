@@ -1,3 +1,6 @@
+"use client";
+
+import Script from "next/script";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
@@ -16,14 +19,11 @@ export default function CTA() {
               <div className="lg:col-span-7">
                 <h2 className="text-3xl font-semibold tracking-tight">Ready to find your highest-ROI AI pilot?</h2>
                 <p className="mt-4 text-neutral-700">
-                  Book a short call. We’ll identify 1–2 strong use cases, estimate ROI, and outline a pilot plan you
+                  Book a short call. We&apos;ll identify 1–2 strong use cases, estimate ROI, and outline a pilot plan you
                   can execute immediately.
                 </p>
 
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                  <a href="mailto:hello@stait.ai?subject=stait.ai%20strategy%20call">
-                    <Button size="lg">Book a strategy call</Button>
-                  </a>
+                <div className="mt-6">
                   <a href="/ai-readiness">
                     <Button variant="secondary" size="lg">
                       Take the AI Readiness Assessment
@@ -41,7 +41,7 @@ export default function CTA() {
 
               <div className="lg:col-span-5">
                 <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
-                  <div className="text-sm font-semibold">What we’ll cover</div>
+                  <div className="text-sm font-semibold">What we&apos;ll cover</div>
                   <div className="mt-4 space-y-3 text-sm text-neutral-700">
                     {[
                       "Your top 3 bottlenecks (ops, docs, customer response)",
@@ -59,6 +59,20 @@ export default function CTA() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Calendly embed — full width below the intro content */}
+            <div className="mt-10 rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+              <h3 className="mb-4 text-center text-lg font-semibold text-neutral-900">Schedule your strategy call</h3>
+              <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/stait-ai-strategy-call"
+                style={{ minWidth: "320px", height: "700px" }}
+              />
+              <Script
+                src="https://assets.calendly.com/assets/external/widget.js"
+                strategy="lazyOnload"
+              />
             </div>
           </div>
         </Reveal>

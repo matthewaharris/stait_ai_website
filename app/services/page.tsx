@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "AI Readiness & Opportunity Assessment, AI Jumpstart pilots, Company Knowledge AI, and AI Ops Retainer services for growing businesses.",
+  alternates: { canonical: "https://www.stait.ai/services" },
 };
 
 export default function ServicesPage() {

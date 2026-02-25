@@ -1,7 +1,7 @@
 # Instructions for AI coding agents (Codex / IDE agents)
 
 ## Goal
-Maintain a premium, "dark aurora" marketing site for stait.ai.
+Maintain a premium, light-themed marketing site for stait.ai.
 
 ## Non-negotiables
 - Keep the site fast: avoid heavy images or large third-party scripts.
@@ -13,14 +13,13 @@ Maintain a premium, "dark aurora" marketing site for stait.ai.
 ## Conventions
 - Sections live in `components/sections/*`.
 - Anchor ids: `#services`, `#process`, `#proof`, `#contact`.
-- Colors: CSS variables in `app/globals.css`.
+- Theme: light with neutral + indigo accent palette (see `app/globals.css`).
 
 ## Typical tasks
-- “Add a Services detail page”
-- “Add a simple blog/resources page (MDX later)”
-- “Add Calendly link + analytics (Plausible) with minimal footprint”
+- "Add a Services detail page"
+- "Add a simple blog/resources page (MDX later)"
+- "Add Calendly link + analytics with minimal footprint"
 
 ## What *not* to do
 - Do not add a template theme or large UI library.
 - Do not add tracking pixels by default.
-- Do not remove the aurora background or glass styling.
