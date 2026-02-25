@@ -15,24 +15,13 @@ export default function CTA() {
       <Container className="relative py-16 sm:py-20">
         <Reveal>
           <div className="rounded-3xl border border-neutral-200 bg-white p-8 shadow-sm sm:p-10">
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2 className="text-3xl font-semibold tracking-tight">Ready to find your highest-ROI AI pilot?</h2>
                 <p className="mt-4 text-neutral-700">
                   Book a short call. We&apos;ll identify 1–2 strong use cases, estimate ROI, and outline a pilot plan you
                   can execute immediately.
                 </p>
-
-                <div className="mt-6">
-                  <div
-                    className="calendly-inline-widget min-h-[660px] w-full"
-                    data-url="https://calendly.com/stait-ai-strategy-call"
-                  />
-                  <Script
-                    src="https://assets.calendly.com/assets/external/widget.js"
-                    strategy="lazyOnload"
-                  />
-                </div>
 
                 <div className="mt-6">
                   <a href="/ai-readiness">
@@ -70,6 +59,20 @@ export default function CTA() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Calendly embed — full width below the intro content */}
+            <div className="mt-10 rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+              <h3 className="mb-4 text-center text-lg font-semibold text-neutral-900">Schedule your strategy call</h3>
+              <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/stait-ai-strategy-call"
+                style={{ minWidth: "320px", height: "700px" }}
+              />
+              <Script
+                src="https://assets.calendly.com/assets/external/widget.js"
+                strategy="lazyOnload"
+              />
             </div>
           </div>
         </Reveal>
