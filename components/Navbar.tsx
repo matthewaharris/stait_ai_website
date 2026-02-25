@@ -35,7 +35,7 @@ export default function Navbar() {
             aria-label="stait.ai home"
           >
             <Image
-              src="/stait-ai-2.svg"
+              src="/stait-logo.svg"
               alt="stait logo"
               width={165}
               height={124}

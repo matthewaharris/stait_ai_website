@@ -30,10 +30,6 @@ export default function HomePage() {
       />
       <Packages />
       <ManagedInfrastructure />
-      <InlineCTA
-        location="home_after_packages"
-        title="Choose your entry point and move quickly."
-      />
       <Process />
       <CaseStudy />
       <InlineCTA

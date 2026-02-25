@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "AI strategy, implementation, AI Ops, and governance for growing businesses. Based in Boise, Idaho.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/stait-logo.png",
         width: 1200,
         height: 630,
         alt: "stait.ai — AI Implementation for Growing Businesses",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: "stait.ai — AI Implementation for Growing Businesses",
     description:
       "AI strategy, implementation, AI Ops, and governance for growing businesses. Based in Boise, Idaho.",
-    images: ["/og-image.png"],
+    images: ["/stait-logo.png"],
   },
 };
 
@@ -112,7 +112,7 @@ export default function RootLayout({
         />
         {children}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-3CK0QWQP2V"
           strategy="afterInteractive"
         />
         <Script id="ga4-init" strategy="afterInteractive">
@@ -120,7 +120,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-3CK0QWQP2V');
           `}
         </Script>
       </body>

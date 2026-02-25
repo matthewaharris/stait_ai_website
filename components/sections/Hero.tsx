@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="lg:col-span-7">
           <Reveal>
             <Image
-              src="/stait-ai-2.svg"
+              src="/stait-logo.svg"
               alt="stait logo"
               width={720}
               height={540}
