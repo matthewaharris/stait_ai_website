@@ -1,7 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import ContactModal from "@/components/ContactModal";
 
 export default function Footer() {
+  const [contactOpen, setContactOpen] = useState(false);
+
   return (
     <footer className="border-t border-neutral-200 bg-neutral-50">
       <div className="mx-auto max-w-6xl px-4 py-10">
@@ -27,14 +33,19 @@ export default function Footer() {
               AI Readiness
             </Link>
             <span>•</span>
-            <a href="mailto:hello@stait.ai" className="transition hover:text-neutral-900">
+            <button
+              onClick={() => setContactOpen(true)}
+              className="transition hover:text-neutral-900"
+            >
               hello@stait.ai
-            </a>
+            </button>
           </div>
         </div>
 
         <div className="mt-8 text-xs text-neutral-600">© {new Date().getFullYear()} stait.ai. All rights reserved.</div>
       </div>
+
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </footer>
   );
 }
