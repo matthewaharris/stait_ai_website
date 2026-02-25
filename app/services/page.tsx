@@ -36,6 +36,29 @@ export default function ServicesPage() {
             </ul>
           </section>
 
+          <section id="managed-infrastructure" className="rounded-3xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold">Managed AI Infrastructure &amp; Deployment</h2>
+            <p className="mt-1 text-sm text-neutral-600">$1,500–$5,000 / month</p>
+            <p className="mt-3 text-sm text-neutral-700">
+              Managed deployments, monitoring, and cost transparency across your stack.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-neutral-700">
+              <li>• Centralized deployment dashboard (status, deploy history, alerts)</li>
+              <li>• Managed hosting across providers (Vercel, Render, Railway, Supabase, Clerk, etc.)</li>
+              <li>• Domain + SSL management support</li>
+              <li>• Cost tracking + monthly billing summary</li>
+              <li>• Baseline monitoring + incident visibility</li>
+            </ul>
+            <p className="mt-4 text-sm text-neutral-700">
+              Flat monthly management fee + pass-through platform usage. Overages billed monthly based on actual
+              provider costs.
+            </p>
+            <p className="mt-3 text-sm text-neutral-700">
+              We can host apps under clientname.stait.app (great for pilots/staging/internal tools) and map to your
+              custom domain for production.
+            </p>
+          </section>
+
           <section className="rounded-3xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold">AI Jumpstart</h2>
             <p className="mt-1 text-sm text-neutral-600">6–8 weeks • $12k–$25k</p>

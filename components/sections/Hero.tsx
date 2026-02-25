@@ -50,6 +50,9 @@ export default function Hero() {
               We design, deploy, and manage practical AI systems that eliminate operational bottlenecks while
               positioning your business to scale intelligently — without hiring an in-house AI team.
             </p>
+            <p className="mt-3 text-sm font-medium text-neutral-700">
+              From roadmap → pilot → managed production infrastructure.
+            </p>
           </Reveal>
 
           <Reveal delayMs={220}>

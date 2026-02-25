@@ -4,6 +4,7 @@ import InlineCTA from "@/components/InlineCTA";
 import Hero from "@/components/sections/Hero";
 import Problems from "@/components/sections/Problems";
 import Packages from "@/components/sections/Packages";
+import ManagedInfrastructure from "@/components/sections/ManagedInfrastructure";
 import Process from "@/components/sections/Process";
 import CaseStudy from "@/components/sections/CaseStudy";
 import Proof from "@/components/sections/Proof";
@@ -28,6 +29,11 @@ export default function HomePage() {
         title="Turn implementation risk into a focused plan."
       />
       <Packages />
+      <ManagedInfrastructure />
+      <InlineCTA
+        location="home_after_packages"
+        title="Choose your entry point and move quickly."
+      />
       <Process />
       <CaseStudy />
       <InlineCTA
