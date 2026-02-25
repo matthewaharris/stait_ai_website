@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "AI for Accounting Firms",
   description:
     "Practical AI implementation for accounting firms: intake automation, knowledge search, response speed, and measurable productivity lift.",
+  alternates: { canonical: "https://www.stait.ai/industries/accounting" },
 };
 
 export default function AccountingIndustryPage() {

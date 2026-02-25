@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "AI Implementation for Growing Businesses",
   description:
     "stait.ai helps growing businesses reduce manual work, improve margins, and build long-term strategic AI capability.",
+  alternates: { canonical: "https://www.stait.ai/" },
 };
 
 export default function HomePage() {
@@ -21,21 +22,12 @@ export default function HomePage() {
     <main className="min-h-screen bg-white text-neutral-950">
       <Navbar />
       <Hero />
-      <InlineCTA
-        location="home_after_hero"
-        title="Start with clarity before committing to build."
-        subtitle="Book a strategy call or take the AI Readiness Assessment to identify your highest-ROI opportunities."
-      />
       <Problems />
       <InlineCTA
         location="home_after_problems"
         title="Turn implementation risk into a focused plan."
       />
       <Packages />
-      <InlineCTA
-        location="home_after_packages"
-        title="Choose your entry point and move quickly."
-      />
       <Process />
       <CaseStudy />
       <InlineCTA
@@ -43,10 +35,6 @@ export default function HomePage() {
         title="See what practical AI outcomes can look like in your business."
       />
       <Proof />
-      <InlineCTA
-        location="home_after_proof"
-        title="Bring enterprise discipline to your next AI move."
-      />
       <CTA />
       <Footer />
     </main>
