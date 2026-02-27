@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
@@ -75,9 +76,14 @@ export default function CaseStudy() {
             AI doesn&rsquo;t replace your team. It amplifies them.
           </p>
 
-          <a href="/services" className="mt-7 inline-flex">
-            <Button variant="secondary">See services</Button>
-          </a>
+          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <Link href="/services" className="inline-flex">
+              <Button variant="secondary">See services</Button>
+            </Link>
+            <Link href="/scenarios" className="inline-flex">
+              <Button variant="ghost">See Other Scenarios</Button>
+            </Link>
+          </div>
         </motion.div>
       </Container>
     </section>
