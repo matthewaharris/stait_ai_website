@@ -57,11 +57,14 @@ export default function Packages() {
           transition={{ duration: 0.6, ease }}
           className="max-w-3xl"
         >
-          <div className="text-sm font-semibold text-indigo-700">Services</div>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">Start small, prove ROI, then scale.</h2>
+          <div className="text-sm font-semibold text-indigo-700">Inside an implementation engagement</div>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
+            Three ways we build, matched to where you are.
+          </h2>
           <p className="mt-3 text-neutral-700">
-            Each package is built to deliver immediate operational efficiency while creating strategic capability you
-            can compound over time.
+            These are the concrete deliverables under the Implementation Partner track — start small, prove ROI, then
+            scale. Each package delivers immediate operational efficiency while creating strategic capability you can
+            compound over time.
           </p>
         </motion.div>
 

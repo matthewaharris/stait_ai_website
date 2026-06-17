@@ -34,7 +34,7 @@ export default function Hero() {
 
         <Reveal delayMs={80}>
           <h1 className="mt-6 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
-            AI Implementation for Growing Businesses
+            AI for Growing Businesses — From First Steps to Full Implementation
           </h1>
         </Reveal>
 
@@ -46,11 +46,12 @@ export default function Hero() {
 
         <Reveal delayMs={160}>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-neutral-700">
-            We design, deploy, and manage practical AI systems that eliminate operational bottlenecks while
-            positioning your business to scale intelligently — without hiring an in-house AI team.
+            Whether you need a workshop to get your team grounded, a clear plan with trained internal champions, or a
+            partner to build and run production systems — we meet you where you are and take you as far as you want to
+            go. No in-house AI team required.
           </p>
           <p className="mt-3 text-sm font-medium text-neutral-700">
-            From roadmap → pilot → managed production infrastructure.
+            Train → Plan → Build → Operate.
           </p>
         </Reveal>
 
@@ -77,7 +78,7 @@ export default function Hero() {
             </div>
 
             <p className="mt-4 text-left text-sm leading-relaxed text-neutral-700">
-              AI Readiness &amp; Opportunity Assessment — $1,500–$2,500 (Boise cohort $1,250 limited) — 1–2 weeks
+              AI Readiness &amp; Opportunity Assessment — $1,500–$2,500 (Boise cohort $1,250 limited) — 1–2 days
             </p>
 
             <div className="mt-6 rounded-2xl border border-neutral-200 bg-neutral-50 p-4 text-left text-sm text-neutral-700">

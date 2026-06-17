@@ -132,7 +132,7 @@ export default function ScenariosPage() {
             </h2>
             <p className="mt-3 text-neutral-700">
               We can model opportunities for your team, estimate impact, and
-              define a low-risk pilot path in 1–2 weeks.
+              define a low-risk pilot path in 1–2 days.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/#contact">
