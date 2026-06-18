@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import InlineCTA from "@/components/InlineCTA";
 import Hero from "@/components/sections/Hero";
 import Problems from "@/components/sections/Problems";
+import ThreeWays from "@/components/sections/ThreeWays";
 import Packages from "@/components/sections/Packages";
 import ManagedInfrastructure from "@/components/sections/ManagedInfrastructure";
 import Process from "@/components/sections/Process";
@@ -12,9 +13,9 @@ import CTA from "@/components/sections/CTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "AI Implementation for Growing Businesses",
+  title: "AI Training, Strategy & Implementation for Growing Businesses",
   description:
-    "stait.ai helps growing businesses reduce manual work, improve margins, and build long-term strategic AI capability.",
+    "stait.ai helps growing businesses adopt AI — from team workshops and opportunity planning to building and operating production systems. Reduce manual work, improve margins, and build long-term capability.",
   alternates: { canonical: "https://www.stait.ai/" },
 };
 
@@ -28,6 +29,7 @@ export default function HomePage() {
         location="home_after_problems"
         title="Turn implementation risk into a focused plan."
       />
+      <ThreeWays />
       <Packages />
       <ManagedInfrastructure />
       <Process />

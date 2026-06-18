@@ -16,7 +16,7 @@ export default function Footer() {
             <Image src="/stait-logo.svg" alt="stait logo" width={86} height={64} className="h-8 w-auto" />
             <div>
               <div className="text-sm font-semibold text-neutral-900">stait.ai</div>
-              <div className="mt-1 text-xs text-neutral-600">AI strategy • Implementation • AI Ops • Governance</div>
+              <div className="mt-1 text-xs text-neutral-600">Train • Plan • Build • Operate</div>
             </div>
           </div>
 
@@ -31,6 +31,10 @@ export default function Footer() {
             <span>•</span>
             <Link href="/ai-readiness" className="transition hover:text-neutral-900">
               AI Readiness
+            </Link>
+            <span>•</span>
+            <Link href="/about" className="transition hover:text-neutral-900">
+              About
             </Link>
             <span>•</span>
             <button

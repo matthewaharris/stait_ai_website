@@ -43,6 +43,7 @@ export default function AccountingIndustryPage() {
             <li>• Internal knowledge search for policy/tax guidance</li>
             <li>• Draft client responses and standardized follow-ups</li>
             <li>• Better throughput without sacrificing compliance discipline</li>
+            <li>• Internal AI champions on staff who own the workflow once we hand it off</li>
           </ul>
         </section>
 
