@@ -25,6 +25,10 @@ export default function Footer() {
               Services
             </Link>
             <span>•</span>
+            <Link href="/products" className="transition hover:text-neutral-900">
+              Products
+            </Link>
+            <span>•</span>
             <Link href="/industries/accounting" className="transition hover:text-neutral-900">
               Industries
             </Link>
