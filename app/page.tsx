@@ -7,6 +7,7 @@ import ThreeWays from "@/components/sections/ThreeWays";
 import Packages from "@/components/sections/Packages";
 import ManagedInfrastructure from "@/components/sections/ManagedInfrastructure";
 import Process from "@/components/sections/Process";
+import Products from "@/components/sections/Products";
 import CaseStudy from "@/components/sections/CaseStudy";
 import Proof from "@/components/sections/Proof";
 import CTA from "@/components/sections/CTA";
@@ -15,7 +16,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "AI Training, Strategy & Implementation for Growing Businesses",
   description:
-    "stait.ai helps growing businesses adopt AI — from team workshops and opportunity planning to building and operating production systems. Reduce manual work, improve margins, and build long-term capability.",
+    "stait.ai helps growing businesses adopt AI — from team workshops and opportunity planning to building and operating production software. We also build and run our own products, like QuoteMagic, and custom apps for clients.",
   alternates: { canonical: "https://www.stait.ai/" },
 };
 
@@ -33,6 +34,7 @@ export default function HomePage() {
       <Packages />
       <ManagedInfrastructure />
       <Process />
+      <Products />
       <CaseStudy />
       <InlineCTA
         location="home_after_case_study"
