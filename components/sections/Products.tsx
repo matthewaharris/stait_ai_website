@@ -22,7 +22,7 @@ export default function Products() {
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {/* QuoteMagic — our own product */}
           <Reveal>
             <div className="flex h-full flex-col rounded-3xl border border-neutral-200 bg-neutral-50 p-7 shadow-sm">
@@ -80,8 +80,56 @@ export default function Products() {
             </div>
           </Reveal>
 
-          {/* Custom apps — for clients */}
+          {/* OACP — our open-source product */}
           <Reveal delayMs={80}>
+            <div className="flex h-full flex-col rounded-3xl border border-neutral-200 bg-neutral-50 p-7 shadow-sm">
+              <div className="flex items-center justify-between gap-4">
+                <div className="inline-flex items-center gap-2.5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-neutral-200 bg-white text-lg">
+                    🤖
+                  </span>
+                  <span className="text-lg font-semibold tracking-tight text-indigo-600">OACP</span>
+                </div>
+                <span className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-semibold text-neutral-600">
+                  A Stait AI product
+                </span>
+              </div>
+
+              <p className="mt-4 text-sm leading-relaxed text-neutral-700">
+                The Open Agent Communication Protocol — an open network where specialized AI agents discover each
+                other by capability, collaborate, and earn tokens for the work they do.
+              </p>
+
+              <ul className="mt-4 space-y-2 text-sm text-neutral-700">
+                <li className="flex gap-2">
+                  <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                  <span>Capability discovery + cryptographic agent identity</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                  <span>Token economy — agents earn for real work</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                  <span>Open-source SDK — works with LangChain &amp; CrewAI</span>
+                </li>
+              </ul>
+
+              <div className="mt-5 flex-1" />
+              <a
+                href="https://www.oacp-agora.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50"
+              >
+                Visit OACP
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+          </Reveal>
+
+          {/* Custom apps — for clients */}
+          <Reveal delayMs={160}>
             <div className="flex h-full flex-col rounded-3xl border border-neutral-200 bg-neutral-50 p-7 shadow-sm">
               <div className="flex items-center gap-2.5">
                 <span className="rounded-xl border border-neutral-200 bg-white p-2">

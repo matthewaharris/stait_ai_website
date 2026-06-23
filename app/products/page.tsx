@@ -10,7 +10,7 @@ import Button from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "stait.ai builds, deploys, and operates production software — including our own product QuoteMagic, and custom apps we build and manage for clients.",
+    "stait.ai builds, deploys, and operates production software — including our own products QuoteMagic and OACP, and custom apps we build and manage for clients.",
   alternates: { canonical: "https://www.stait.ai/products" },
 };
 
@@ -53,64 +53,110 @@ export default function ProductsPage() {
           <span className="h-px flex-1 bg-neutral-200" />
         </div>
 
-        <section className="mt-6 rounded-3xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="inline-flex items-center gap-3">
-              <span className="rounded-xl border border-neutral-200 bg-white p-1">
-                <Image
-                  src="/quotemagic-icon.png"
-                  alt="QuoteMagic logo"
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 rounded-md"
-                />
-              </span>
-              <span className="text-2xl font-semibold tracking-tight">
-                <span className="text-sky-500">Quote</span>
-                <span className="text-fuchsia-600">Magic</span>
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          {/* QuoteMagic */}
+          <div className="flex h-full flex-col rounded-3xl border border-neutral-200 bg-neutral-50 p-6 shadow-sm sm:p-8">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="inline-flex items-center gap-3">
+                <span className="rounded-xl border border-neutral-200 bg-white p-1">
+                  <Image
+                    src="/quotemagic-icon.png"
+                    alt="QuoteMagic logo"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-md"
+                  />
+                </span>
+                <span className="text-2xl font-semibold tracking-tight">
+                  <span className="text-sky-500">Quote</span>
+                  <span className="text-fuchsia-600">Magic</span>
+                </span>
+              </div>
+              <span className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-semibold text-neutral-600">
+                Built &amp; operated by Stait AI
               </span>
             </div>
-            <span className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-semibold text-neutral-600">
-              Built &amp; operated by Stait AI
-            </span>
+
+            <p className="mt-4 text-sm leading-relaxed text-neutral-700">
+              Mobile-first quoting and price-book software for trade contractors. Field teams build professional
+              quotes in minutes, reuse a smart price book for accurate pricing, and track every job from open pipeline
+              to won to paid — all from their phone.
+            </p>
+
+            <ul className="mt-5 space-y-2 text-sm text-neutral-700">
+              <li className="flex gap-2">
+                <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                <span>Fast, mobile-first quoting built for the field</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                <span>Reusable price book for consistent, accurate pricing</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                <span>Pipeline tracking from open to won to paid</span>
+              </li>
+            </ul>
+
+            <div className="mt-5 flex-1" />
+            <a
+              href="https://quotemagic.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50"
+            >
+              Visit QuoteMagic
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
 
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-neutral-700">
-            QuoteMagic is mobile-first quoting and price-book software for trade contractors. Field teams build
-            professional quotes in minutes, reuse a smart price book for accurate pricing, and track every job from
-            open pipeline to won to paid — all from their phone. It&rsquo;s a working example of what we build: a
-            focused product, shipped and run in production.
-          </p>
+          {/* OACP */}
+          <div className="flex h-full flex-col rounded-3xl border border-neutral-200 bg-neutral-50 p-6 shadow-sm sm:p-8">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="inline-flex items-center gap-3">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-neutral-200 bg-white text-2xl">
+                  🤖
+                </span>
+                <span className="text-2xl font-semibold tracking-tight text-indigo-600">OACP</span>
+              </div>
+              <span className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-semibold text-neutral-600">
+                Open source · by Stait AI
+              </span>
+            </div>
 
-          <ul className="mt-5 grid gap-2 text-sm text-neutral-700 sm:grid-cols-2">
-            <li className="flex gap-2">
-              <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
-              <span>Fast, mobile-first quoting built for the field</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
-              <span>Reusable price book for consistent, accurate pricing</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
-              <span>Pipeline tracking from open to won to paid</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
-              <span>Hosted, monitored, and maintained by stait.ai</span>
-            </li>
-          </ul>
+            <p className="mt-4 text-sm leading-relaxed text-neutral-700">
+              The Open Agent Communication Protocol — an open network where specialized AI agents register what they
+              do, discover each other by capability, and earn tokens for completed work. Each agent brings its own
+              model; OACP gives it an identity and a wallet.
+            </p>
 
-          <a
-            href="https://quotemagic.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50"
-          >
-            Visit QuoteMagic
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
-        </section>
+            <ul className="mt-5 space-y-2 text-sm text-neutral-700">
+              <li className="flex gap-2">
+                <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                <span>Capability discovery + cryptographic agent identity</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                <span>Token economy — agents earn for real work</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-[7px] inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                <span>Drop-in SDK (npm / pip), works with LangChain &amp; CrewAI</span>
+              </li>
+            </ul>
+
+            <div className="mt-5 flex-1" />
+            <a
+              href="https://www.oacp-agora.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50"
+            >
+              Visit OACP
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
 
         {/* ---------- CUSTOM APPS ---------- */}
         <div className="mt-12 flex items-center gap-3">
