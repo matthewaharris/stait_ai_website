@@ -1,6 +1,24 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const displayFont = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+});
+
+const bodyFont = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
+
+const monoFont = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -98,7 +116,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
       <head>
         <link
           href="https://assets.calendly.com/assets/external/widget.css"

@@ -9,7 +9,7 @@ export default function CTA() {
   return (
     <section id="contact" className="relative overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-[-140px] h-[380px] w-[780px] -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-100 via-indigo-100 to-emerald-100 blur-3xl opacity-80" />
+        <div className="absolute left-1/2 top-[-140px] h-[380px] w-[780px] -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo-100 via-violet-100 to-cyan-100 blur-3xl opacity-80" />
       </div>
 
       <Container className="relative py-16 sm:py-20">

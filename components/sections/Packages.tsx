@@ -57,7 +57,7 @@ export default function Packages() {
           transition={{ duration: 0.6, ease }}
           className="max-w-3xl"
         >
-          <div className="text-sm font-semibold text-indigo-700">Services</div>
+          <div className="eyebrow">Services</div>
           <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">Start small, prove ROI, then scale.</h2>
           <p className="mt-3 text-neutral-700">
             Each package is built to deliver immediate operational efficiency while creating strategic capability you

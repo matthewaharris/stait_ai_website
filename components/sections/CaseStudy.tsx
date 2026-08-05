@@ -18,9 +18,7 @@ export default function CaseStudy() {
           transition={{ duration: 0.6, ease }}
           className="rounded-3xl border border-neutral-200 bg-neutral-50 p-8 shadow-sm sm:p-10"
         >
-          <div className="text-sm font-semibold text-indigo-700">
-            What this looks like in practice
-          </div>
+          <div className="eyebrow">Case Study</div>
           <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
             Scenario: Regional Accounting Firm (35 employees)
           </h2>

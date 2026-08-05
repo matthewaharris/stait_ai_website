@@ -29,7 +29,8 @@ export default function Process() {
       <Container className="py-16 sm:py-20">
         <Reveal>
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-semibold tracking-tight">A delivery model that keeps AI practical.</h2>
+            <div className="eyebrow">Process</div>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight">A delivery model that keeps AI practical.</h2>
             <p className="mt-4 text-neutral-700">
               We focus on the shortest path to measurable impact — while keeping risk, security, and maintainability
               front-and-center.

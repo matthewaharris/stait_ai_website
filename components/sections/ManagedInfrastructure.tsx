@@ -25,7 +25,8 @@ export default function ManagedInfrastructure() {
           transition={{ duration: 0.6, ease }}
           className="rounded-3xl border border-neutral-200 bg-neutral-50 p-8 shadow-sm sm:p-10"
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-neutral-950">
+          <div className="eyebrow">Managed Infrastructure</div>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
             Managed infrastructure that makes AI stick
           </h2>
           <p className="mt-4 max-w-3xl text-neutral-700">

@@ -10,8 +10,8 @@ export default function Hero() {
     <section className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <HeroNodesBackdrop className="z-10 opacity-100" />
-        <div className="absolute -top-24 left-1/2 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-100 via-indigo-100 to-emerald-100 opacity-70 blur-3xl" />
-        <div className="absolute -bottom-36 right-[-10%] h-[420px] w-[520px] rounded-full bg-gradient-to-tr from-rose-100 via-amber-100 to-sky-100 opacity-60 blur-3xl" />
+        <div className="absolute -top-24 left-1/2 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo-100 via-violet-100 to-cyan-100 opacity-70 blur-3xl" />
+        <div className="absolute -bottom-36 right-[-10%] h-[420px] w-[520px] rounded-full bg-gradient-to-tr from-violet-100 via-indigo-50 to-cyan-100 opacity-60 blur-3xl" />
       </div>
 
       <Container className="relative z-20 flex flex-col items-center pb-16 pt-0 text-center sm:pb-20 sm:pt-0">
@@ -27,7 +27,7 @@ export default function Hero() {
         </Reveal>
 
         <Reveal>
-          <p className="mt-3 inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-700 shadow-sm">
+          <p className="mt-3 inline-flex items-center rounded-full border border-indigo-100 bg-white px-3.5 py-1 font-mono text-[11px] tracking-wide text-neutral-600 shadow-sm">
             Boise-first relationships • Nationwide delivery • SMB focus • Enterprise-ready discipline
           </p>
         </Reveal>

@@ -24,7 +24,8 @@ export default function Problems() {
           transition={{ duration: 0.6, ease }}
           className="max-w-3xl"
         >
-          <h2 className="text-3xl font-semibold tracking-tight text-neutral-950">
+          <div className="eyebrow">The Problem</div>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
             AI is no longer optional — but implementation risk is real.
           </h2>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">

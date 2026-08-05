@@ -50,9 +50,7 @@ export default function Proof() {
           transition={{ duration: 0.6, ease }}
           className="mb-12"
         >
-          <div className="text-sm font-semibold text-indigo-700">
-            Who&rsquo;s behind stait.ai
-          </div>
+          <div className="eyebrow">Proof</div>
           <h2 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-950">
             Enterprise rigor, without the enterprise drag
           </h2>
