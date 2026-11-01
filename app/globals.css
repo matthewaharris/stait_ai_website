@@ -1,25 +1,86 @@
 @import "tailwindcss";
 
-/* Light, crisp defaults (Option B) */
-:root {
-  color-scheme: light;
+/* stait.ai brand tokens — matched to the client deck */
+@theme {
+  --color-navy: #111327;
+  --color-navy-2: #1a1d36;
+  --color-navy-line: #2c2f4d;
+  --color-ink: #1b1d2e;
+  --color-muted: #5d6075;
+  --color-subtle: #8a8da3;
+  --color-haze: #a3a6bd;
+  --color-mist: #c9cbdb;
+  --color-line: #e3e4ec;
+  --color-paper: #f7f7fb;
+
+  --color-brand-purple: #6d4bc9;
+  --color-brand-violet: #9b7bff;
+  --color-brand-red: #e23c5a;
+  --color-brand-pink: #ff5c7a;
+  --color-brand-orange: #f7941d;
+  --color-brand-amber: #ffa53d;
+  --color-brand-lime: #9bc93a;
+  --color-brand-green: #14b86e;
+  --color-brand-mint: #5fd49a;
+  --color-brand-blue: #1ea5e3;
+  --color-brand-sky: #1883c0;
 }
 
-html {
-  scroll-behavior: smooth;
+@theme inline {
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
 }
 
-body {
-  background: white;
+/* Base styles live in a layer so Tailwind utilities (e.g. button text colors) can override them. */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: rgba(109, 75, 201, 0.2);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  h1, h2, h3, p {
+    text-wrap: pretty;
+  }
 }
 
-::selection {
-  background: rgba(59, 130, 246, 0.18);
+/* Brand helpers */
+.bg-signature {
+  background-image: linear-gradient(135deg, #6d4bc9, #1ea5e3, #e23c5a);
 }
+.text-sunset {
+  background-image: linear-gradient(90deg, #9b7bff, #ff5c7a, #ffa53d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.glow-purple { background: radial-gradient(circle, rgba(109, 75, 201, 0.38), rgba(109, 75, 201, 0) 62%); }
+.glow-blue   { background: radial-gradient(circle, rgba(30, 165, 227, 0.26), rgba(30, 165, 227, 0) 62%); }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }

@@ -1,33 +1,30 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Container from "@/components/ui/Container";
+import PageHero from "@/components/sections/PageHero";
 import AIReadinessForm from "@/components/forms/AIReadinessForm";
 
 export const metadata: Metadata = {
-  title: "AI Readiness Assessment",
+  title: "AI Readiness Quiz",
   description:
-    "Take the 10-question AI readiness assessment to get a score tier and next-step recommendations for implementation.",
+    "Answer 10 quick yes/no questions to see where your business stands on AI readiness and what to prioritize next.",
   alternates: { canonical: "https://www.stait.ai/ai-readiness" },
 };
 
 export default function AIReadinessPage() {
   return (
-    <main className="min-h-screen bg-white text-neutral-950">
-      <Navbar />
-      <Container className="py-16 sm:py-20">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-semibold tracking-tight">AI Readiness Assessment</h1>
-          <p className="mt-4 text-lg text-neutral-700">
-            Answer 10 quick yes/no questions to see where your organization stands and what to prioritize next.
-          </p>
-        </div>
-
-        <div className="mt-10">
+    <>
+      <PageHero
+        eyebrow="AI readiness quiz"
+        title="How ready is your business for AI?"
+        intro="Answer 10 quick yes/no questions to see where you stand and what to prioritize next. Takes about two minutes."
+        bar="blue"
+        glow="blue"
+      />
+      <section className="bg-paper py-20 sm:py-24">
+        <Container className="max-w-3xl">
           <AIReadinessForm />
-        </div>
-      </Container>
-      <Footer />
-    </main>
+        </Container>
+      </section>
+    </>
   );
 }

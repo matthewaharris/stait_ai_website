@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Container from "@/components/ui/Container";
+import Eyebrow from "@/components/ui/Eyebrow";
+import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
+import PageHero from "@/components/sections/PageHero";
+import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
   title: "AI for Accounting Firms",
@@ -12,56 +13,88 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.stait.ai/industries/accounting" },
 };
 
+const challenges = [
+  "Seasonal workload spikes during filing periods",
+  "Manual intake and document routing workflows",
+  "Compliance and privacy requirements",
+  "Knowledge bottlenecks concentrated in senior staff",
+  "Burnout from repetitive, high-volume admin work",
+];
+
+const value = [
+  "Intake automation and document classification",
+  "Summarization for faster internal review",
+  "Internal knowledge search for policy/tax guidance",
+  "Draft client responses and standardized follow-ups",
+  "Better throughput without sacrificing compliance discipline",
+  "Internal AI champions on staff who own the workflow once we hand it off",
+];
+
+const lists = [
+  { eyebrow: "Common challenges", bar: "violet" as const, dot: "bg-brand-violet", items: challenges },
+  { eyebrow: "Where AI delivers value", bar: "blue" as const, dot: "bg-brand-blue", items: value },
+];
+
 export default function AccountingIndustryPage() {
   return (
-    <main className="min-h-screen bg-white text-neutral-950">
-      <Navbar />
-      <Container className="py-16 sm:py-20">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-semibold tracking-tight">AI for Accounting Firms</h1>
-          <p className="mt-4 text-lg text-neutral-700">
-            Reduce administrative burden. Improve client response. Scale intelligently.
-          </p>
-        </div>
+    <>
+      <PageHero
+        eyebrow="Industries · Accounting"
+        title="AI for accounting firms."
+        intro="Reduce administrative burden. Improve client response. Scale intelligently."
+        glow="blue"
+      >
+        <Button href="/contact" size="lg">
+          Book a free call
+        </Button>
+        <Button href="/services" size="lg" variant="secondary">
+          See packages
+        </Button>
+      </PageHero>
 
-        <section className="mt-10 rounded-3xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Common challenges</h2>
-          <ul className="mt-4 space-y-2 text-sm text-neutral-700">
-            <li>• Seasonal workload spikes during filing periods</li>
-            <li>• Manual intake and document routing workflows</li>
-            <li>• Compliance and privacy requirements</li>
-            <li>• Knowledge bottlenecks concentrated in senior staff</li>
-            <li>• Burnout from repetitive, high-volume admin work</li>
-          </ul>
-        </section>
+      <section className="bg-paper py-20 sm:py-28">
+        <Container className="grid gap-8 lg:grid-cols-2">
+          {lists.map((l, i) => (
+            <Reveal
+              key={l.eyebrow}
+              delayMs={i * 100}
+              className="rounded-3xl border border-line bg-white p-9 shadow-[0_20px_50px_rgba(27,29,46,0.06)] sm:p-11"
+            >
+              <Eyebrow bar={l.bar}>{l.eyebrow}</Eyebrow>
+              <ul className="mt-8 space-y-4">
+                {l.items.map((item) => (
+                  <li key={item} className="flex gap-3 text-[17px] text-ink">
+                    <span className={`mt-2 h-2 w-2 shrink-0 rounded-full ${l.dot}`} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </Container>
+      </section>
 
-        <section className="mt-6 rounded-3xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Where AI delivers value</h2>
-          <ul className="mt-4 space-y-2 text-sm text-neutral-700">
-            <li>• Intake automation and document classification</li>
-            <li>• Summarization for faster internal review</li>
-            <li>• Internal knowledge search for policy/tax guidance</li>
-            <li>• Draft client responses and standardized follow-ups</li>
-            <li>• Better throughput without sacrificing compliance discipline</li>
-            <li>• Internal AI champions on staff who own the workflow once we hand it off</li>
-          </ul>
-        </section>
+      <section className="bg-white py-20 sm:py-28">
+        <Container>
+          <Reveal className="relative overflow-hidden rounded-3xl bg-navy p-9 text-white sm:p-14">
+            <div aria-hidden className="glow-purple pointer-events-none absolute -right-48 -top-48 h-[560px] w-[560px] rounded-full" />
+            <div className="relative max-w-3xl">
+              <Eyebrow dark bar="purple">
+                Example ROI model
+              </Eyebrow>
+              <p className="mt-8 font-display text-2xl font-semibold leading-snug tracking-tight sm:text-3xl">
+                A 25-person firm that cuts 6 hours a week of manual document review across 10 senior staff saves{" "}
+                <span className="text-brand-violet">3,000+ hours</span> a year.
+              </p>
+              <p className="mt-6 text-lg leading-relaxed text-mist">
+                At $125/hour billable equivalent, that&rsquo;s ~$375,000 in potential productivity lift.
+              </p>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
 
-        <section className="mt-6 rounded-3xl border border-indigo-200 bg-indigo-50 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold text-indigo-950">Example ROI model</h2>
-          <p className="mt-4 text-sm leading-relaxed text-indigo-950/90">
-            If a 25-person firm reduces 6 hours per week of manual document review across 10 senior staff, that’s
-            3,000+ hours annually. At $125/hour billable equivalent, that’s ~$375,000 in potential productivity lift.
-          </p>
-        </section>
-
-        <div className="mt-10">
-          <Link href="/#contact">
-            <Button size="lg">Start with AI Jumpstart</Button>
-          </Link>
-        </div>
-      </Container>
-      <Footer />
-    </main>
+      <FinalCTA />
+    </>
   );
 }

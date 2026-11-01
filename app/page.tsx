@@ -1,48 +1,32 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import InlineCTA from "@/components/InlineCTA";
-import Hero from "@/components/sections/Hero";
-import Problems from "@/components/sections/Problems";
-import ThreeWays from "@/components/sections/ThreeWays";
-import Packages from "@/components/sections/Packages";
-import ManagedInfrastructure from "@/components/sections/ManagedInfrastructure";
-import Process from "@/components/sections/Process";
-import Products from "@/components/sections/Products";
-import CaseStudy from "@/components/sections/CaseStudy";
-import Proof from "@/components/sections/Proof";
-import CTA from "@/components/sections/CTA";
-import Footer from "@/components/Footer";
+import HomeHero from "@/components/sections/HomeHero";
+import { Opportunity, Gap } from "@/components/sections/Stats";
+import { Founder, Comparison, Responsible, ProductsStrip } from "@/components/sections/Trust";
+import Approach from "@/components/sections/Approach";
+import PackageCards from "@/components/sections/PackageCards";
+import { UseCases, RoiMath } from "@/components/sections/UseCasesRoi";
+import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "AI Training, Strategy & Implementation for Growing Businesses",
-  description:
-    "stait.ai helps growing businesses adopt AI — from team workshops and opportunity planning to building and operating production software. We also build and run our own products, like QuoteMagic, and custom apps for clients.",
+  title: { absolute: "Stait AI — AI Training, Strategy & Implementation for Growing Businesses" },
   alternates: { canonical: "https://www.stait.ai/" },
 };
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-neutral-950">
-      <Navbar />
-      <Hero />
-      <Problems />
-      <InlineCTA
-        location="home_after_problems"
-        title="Turn implementation risk into a focused plan."
-      />
-      <ThreeWays />
-      <Packages />
-      <ManagedInfrastructure />
-      <Process />
-      <Products />
-      <CaseStudy />
-      <InlineCTA
-        location="home_after_case_study"
-        title="See what practical AI outcomes can look like in your business."
-      />
-      <Proof />
-      <CTA />
-      <Footer />
-    </main>
+    <>
+      <HomeHero />
+      <Opportunity />
+      <Gap />
+      <Founder />
+      <Approach />
+      <PackageCards />
+      <UseCases />
+      <RoiMath />
+      <Comparison />
+      <Responsible />
+      <ProductsStrip />
+      <FinalCTA />
+    </>
   );
 }

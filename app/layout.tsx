@@ -1,15 +1,26 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Sora, Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { packages } from "@/lib/packages";
+import { site } from "@/lib/site";
 import "./globals.css";
+
+const sora = Sora({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-sora" });
+const instrument = Instrument_Sans({ subsets: ["latin"], variable: "--font-instrument" });
+const jetbrains = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-jetbrains" });
+
+const description =
+  "Stait AI helps small and growing businesses put AI to work: hands-on team training, a costed AI strategy, and custom AI tools built and launched. Based in Boise, serving clients nationwide.";
 
 export const metadata: Metadata = {
   title: {
-    default: "stait.ai — AI Implementation for Growing Businesses",
-    template: "%s | stait.ai",
+    default: "Stait AI — AI Training, Strategy & Implementation for Growing Businesses",
+    template: "%s | Stait AI",
   },
-  description:
-    "AI strategy, implementation, AI Ops, and governance for growing businesses. Based in Boise, Idaho.",
-  metadataBase: new URL("https://www.stait.ai"),
+  description,
+  metadataBase: new URL(site.url),
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: ["/icon.svg"],
@@ -18,25 +29,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.stait.ai",
-    siteName: "stait.ai",
-    title: "stait.ai — AI Implementation for Growing Businesses",
-    description:
-      "AI strategy, implementation, AI Ops, and governance for growing businesses. Based in Boise, Idaho.",
-    images: [
-      {
-        url: "/stait-logo.png",
-        width: 1200,
-        height: 630,
-        alt: "stait.ai — AI Implementation for Growing Businesses",
-      },
-    ],
+    url: site.url,
+    siteName: "Stait AI",
+    title: "Stait AI — Put AI to work in your business",
+    description,
+    images: [{ url: "/stait-logo.png", width: 1200, height: 630, alt: "Stait AI" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "stait.ai — AI Implementation for Growing Businesses",
-    description:
-      "AI strategy, implementation, AI Ops, and governance for growing businesses. Based in Boise, Idaho.",
+    title: "Stait AI — Put AI to work in your business",
+    description,
     images: ["/stait-logo.png"],
   },
 };
@@ -45,76 +47,36 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      name: "stait.ai",
-      url: "https://www.stait.ai",
-      email: "hello@stait.ai",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Boise",
-        addressRegion: "ID",
-        addressCountry: "US",
-      },
+      "@type": ["Organization", "ProfessionalService"],
+      name: site.legalName,
+      alternateName: "Stait AI",
+      url: site.url,
+      email: site.email,
+      description,
+      founder: { "@type": "Person", name: "Matt Harris" },
+      address: { "@type": "PostalAddress", addressLocality: "Boise", addressRegion: "ID", addressCountry: "US" },
+      areaServed: "US",
     },
-    {
-      "@type": "LocalBusiness",
-      name: "stait.ai",
-      url: "https://www.stait.ai",
-      email: "hello@stait.ai",
-      description:
-        "AI strategy, implementation, AI Ops, and governance for growing businesses.",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Boise",
-        addressRegion: "ID",
-        addressCountry: "US",
-      },
-    },
-    {
+    ...packages.map((p) => ({
       "@type": "Service",
-      name: "AI Jumpstart",
-      provider: { "@type": "Organization", name: "stait.ai" },
-      description:
-        "6–8 week engagement delivering a readiness assessment, ROI model, production-grade pilot, governance baseline, and 90-day roadmap.",
-    },
-    {
-      "@type": "Service",
-      name: "Company Knowledge AI",
-      provider: { "@type": "Organization", name: "stait.ai" },
-      description:
-        "Secure RAG-based internal knowledge assistant with permissions, citations, and auditability.",
-    },
-    {
-      "@type": "Service",
-      name: "AI Ops Retainer",
-      provider: { "@type": "Organization", name: "stait.ai" },
-      description:
-        "Ongoing monitoring, optimization, governance updates, and quarterly strategic planning for AI systems.",
-    },
+      name: p.name,
+      url: `${site.url}/services/${p.slug}`,
+      provider: { "@type": "Organization", name: site.legalName },
+      description: p.summary,
+      offers: { "@type": "Offer", price: p.priceValue, priceCurrency: "USD" },
+    })),
   ],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {children}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-3CK0QWQP2V"
-          strategy="afterInteractive"
-        />
+    <html lang="en" className={`${sora.variable} ${instrument.variable} ${jetbrains.variable}`}>
+      <body className="min-h-screen bg-white font-sans text-ink">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-3CK0QWQP2V" strategy="afterInteractive" />
         <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
