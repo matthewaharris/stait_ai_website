@@ -83,11 +83,13 @@ export default function AccountingIndustryPage() {
                 Example ROI model
               </Eyebrow>
               <p className="mt-8 font-display text-2xl font-semibold leading-snug tracking-tight sm:text-3xl">
-                A 25-person firm that cuts 6 hours a week of manual document review across 10 senior staff saves{" "}
-                <span className="text-brand-violet">3,000+ hours</span> a year.
+                If 10 senior staff each spend 6 hours a week on manual document review, cutting that by half at 80%
+                adoption, less 3 hours of human review, frees about{" "}
+                <span className="text-brand-violet">1,100 hours</span> a year.
               </p>
               <p className="mt-6 text-lg leading-relaxed text-mist">
-                At $125/hour billable equivalent, that&rsquo;s ~$375,000 in potential productivity lift.
+                At $125/hour billable equivalent, that&rsquo;s about $136,500 of capacity. Illustrative, and it&rsquo;s
+                capacity rather than cash until the time is billed or reinvested.
               </p>
             </div>
           </Reveal>

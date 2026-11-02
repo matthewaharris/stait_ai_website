@@ -4,19 +4,19 @@ import Reveal from "@/components/ui/Reveal";
 import CountUp from "@/components/ui/CountUp";
 import GrowBar from "@/components/ui/GrowBar";
 
-// TODO(owner): verify these figures against the latest published reports before launch.
+// Sources cover different populations, so each stat keeps its own label.
 const stats = [
   {
-    value: 58,
-    label: "of U.S. small businesses now use generative AI",
-    source: "U.S. Chamber of Commerce, 2025",
+    value: 66,
+    label: "of U.S. small businesses say they use AI",
+    source: "U.S. Chamber of Commerce, 2026",
     color: "text-brand-purple",
     bar: "bg-brand-purple",
   },
   {
-    value: 88,
-    label: "of organizations use AI in at least one business function",
-    source: "McKinsey, The State of AI, 2025",
+    value: 26,
+    label: "of small employer firms have paid an AI provider",
+    source: "JPMorganChase Institute, 2026. Observed payments; excludes free and embedded AI",
     color: "text-brand-sky",
     bar: "bg-brand-blue",
   },
@@ -38,7 +38,7 @@ export function Opportunity() {
         </Reveal>
         <Reveal delayMs={100}>
           <h2 className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-            AI has moved from experiment to everyday business tool.
+            Most small businesses say they use AI. Far fewer pay for it.
           </h2>
         </Reveal>
         <div className="mt-16 grid gap-14 md:grid-cols-2 md:gap-20">
@@ -76,16 +76,16 @@ export function Gap() {
         <div className="mt-16 grid items-end gap-14 lg:grid-cols-2 lg:gap-24">
           <Reveal delayMs={200}>
             <div className="text-white font-display text-[120px] font-semibold leading-[0.85] tracking-[-0.06em] sm:text-[180px]">
-              <CountUp value={95} suffix="%" />
+              <CountUp value={7} suffix="%" />
             </div>
             <p className="mt-8 max-w-md text-xl leading-snug sm:text-2xl">
-              of generative AI pilots deliver no measurable impact on the bottom line
+              of AI-using small firms say AI is fully integrated
             </p>
-            <p className="mt-3 font-mono text-sm text-subtle">MIT NANDA, The GenAI Divide, 2025</p>
+            <p className="mt-3 font-mono text-sm text-subtle">Federal Reserve, Small Business Credit Survey, 2026</p>
           </Reveal>
           <div>
             <Reveal delayMs={300}>
-              <div className="font-mono text-xs uppercase tracking-[0.2em] text-haze">Why it happens</div>
+              <div className="font-mono text-xs uppercase tracking-[0.2em] text-haze">What we see holding firms back</div>
             </Reveal>
             <ul className="mt-2">
               {reasons.map((r, i) => (

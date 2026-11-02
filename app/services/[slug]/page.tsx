@@ -195,7 +195,7 @@ export default async function PackagePage({ params }: { params: Promise<{ slug: 
                 <DayTimeline p={p} />
               </div>
             )}
-            {p.slug === "ai-strategy-blueprint" && <DayCards p={p} />}
+            {(p.slug === "ai-strategy-blueprint" || p.slug === "ai-workflow-pilot") && <DayCards p={p} />}
             {p.slug === "ai-transformation-program" && (
               <div className="space-y-10">
                 <Gantt p={p} />

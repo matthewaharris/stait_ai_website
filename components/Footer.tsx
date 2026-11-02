@@ -31,6 +31,11 @@ export default function Footer() {
           <div className="md:col-span-3">
             <div className="font-mono text-xs uppercase tracking-[0.2em] text-subtle">Services</div>
             <ul className="mt-4 space-y-3 text-sm">
+              <li>
+                <Link href="/seminar" className="text-mist transition hover:text-white">
+                  Owner seminar
+                </Link>
+              </li>
               {packages.map((p) => (
                 <li key={p.slug}>
                   <Link href={`/services/${p.slug}`} className="text-mist transition hover:text-white">

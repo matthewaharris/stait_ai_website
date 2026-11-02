@@ -45,10 +45,10 @@ export function UseCases() {
 }
 
 const factors = [
-  { v: "10", l: "people" },
-  { v: "5 hrs", l: "saved per week" },
-  { v: "$45", l: "per hour" },
-  { v: "50", l: "weeks" },
+  { v: "20 hrs", l: "weekly task", op: "×" },
+  { v: "50%", l: "time reduction", op: "×" },
+  { v: "80%", l: "adoption", op: "−" },
+  { v: "3 hrs", l: "added review", op: "=" },
 ];
 
 export function RoiMath() {
@@ -60,46 +60,46 @@ export function RoiMath() {
         </Reveal>
         <Reveal delayMs={100}>
           <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-            Small time savings add up fast.
+            One workflow, on conservative numbers.
           </h2>
         </Reveal>
 
         <Reveal delayMs={200} className="mt-14 flex flex-wrap items-end gap-x-6 gap-y-8 lg:gap-x-8">
-          {factors.map((f, i) => (
+          {factors.map((f) => (
             <div key={f.l} className="flex items-end gap-6 lg:gap-8">
               <div>
                 <div className="font-display text-5xl font-semibold tracking-tight sm:text-6xl">{f.v}</div>
                 <div className="mt-2 text-muted">{f.l}</div>
               </div>
-              <span className="pb-9 font-display text-4xl text-mist">{i < factors.length - 1 ? "×" : "="}</span>
+              <span className="pb-9 font-display text-4xl text-mist">{f.op}</span>
             </div>
           ))}
           <div>
             <div className="font-display text-5xl font-semibold tracking-tight text-brand-purple sm:text-6xl">
-              <CountUp value={112500} prefix="$" />
+              <CountUp value={5} suffix=" hrs" />
             </div>
-            <div className="mt-2 text-muted">in recovered capacity per year</div>
+            <div className="mt-2 text-muted">freed per week, net of review</div>
           </div>
         </Reveal>
 
         <div className="mt-16 grid grid-cols-[auto_1fr] items-center gap-x-8 gap-y-5">
-          <span className="text-lg text-muted">Program investment</span>
+          <span className="text-lg text-muted">Annual value at $40/hour</span>
           <div className="flex items-center gap-5">
-            <GrowBar className="h-12 rounded-xl bg-mist" style={{ width: "22%" }} delay={0.2} />
-            <span className="font-display text-2xl font-semibold">$25,000</span>
+            <GrowBar className="h-12 rounded-xl bg-mist" style={{ width: "78%" }} delay={0.2} />
+            <span className="font-display text-2xl font-semibold">$10,400</span>
           </div>
-          <span className="text-lg text-muted">Annual value</span>
+          <span className="text-lg text-muted">After running costs</span>
           <div className="flex items-center gap-5">
             <GrowBar
               className="h-12 rounded-xl bg-gradient-to-r from-brand-purple to-brand-blue"
-              style={{ width: "78%" }}
+              style={{ width: "60%" }}
               delay={0.4}
               duration={1.3}
             />
-            <span className="font-display text-2xl font-semibold text-brand-purple">$112,500</span>
+            <span className="font-display text-2xl font-semibold text-brand-purple">$8,000</span>
           </div>
         </div>
-        <p className="mt-8 font-mono text-sm text-subtle">Illustrative example · payback in under 3 months</p>
+        <p className="mt-8 font-mono text-sm text-subtle">Illustrative example · freed time is capacity, not cash · we run this with your real numbers, and if it doesn\u2019t pay, we say so</p>
       </Container>
     </section>
   );

@@ -6,14 +6,14 @@ import Reveal from "@/components/ui/Reveal";
 import { accentStyles, packages } from "@/lib/packages";
 import { cn } from "@/lib/cn";
 
-/** The three engagements as stepped cards. Heights rise left→right on large screens. */
+/** The four engagements as stepped cards. Heights rise left→right on large screens. */
 export function PackageCardGrid() {
-  const heights = ["lg:min-h-[460px]", "lg:min-h-[540px]", "lg:min-h-[620px]"];
+  const heights = ["xl:min-h-[500px]", "xl:min-h-[560px]", "xl:min-h-[620px]", "xl:min-h-[680px]"];
   return (
-    <div className="grid items-end gap-6 lg:grid-cols-3">
+    <div className="grid items-end gap-6 md:grid-cols-2 xl:grid-cols-4">
       {packages.map((p, i) => {
         const a = accentStyles[p.accent];
-        const dark = i === 2;
+        const dark = i === packages.length - 1;
         return (
           <Reveal key={p.slug} from="rise" delayMs={150 + i * 150} className="h-full">
             <Link
@@ -81,13 +81,13 @@ export default function PackageCards() {
             </Reveal>
             <Reveal delayMs={100}>
               <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-                Three ways to work with us.
+                Four ways to work with us.
               </h2>
             </Reveal>
           </div>
           <Reveal delayMs={200}>
             <p className="max-w-sm text-lg text-muted">
-              Start where you are. Each fee credits toward the next step when booked within 60 days.
+              Start where you are. Part of your fee credits toward the next step when booked within 60 days.
             </p>
           </Reveal>
         </div>

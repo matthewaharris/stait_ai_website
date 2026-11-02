@@ -72,26 +72,27 @@ export const posts: Post[] = [
     body: [
       {
         type: "p",
-        text: "Before investing in AI, most owners want a straight answer: will this pay for itself? A useful first estimate needs only four numbers.",
+        text: "Before investing in AI, most owners want a straight answer: will this pay for itself? A useful first estimate needs only a few numbers.",
       },
       {
         type: "ul",
         items: [
-          "How many people do the work",
-          "Hours each could save per week",
-          "Loaded cost per hour",
-          "Working weeks per year",
+          "Hours the task takes each week",
+          "How much of that time AI can reduce",
+          "How much of the team will actually use it",
+          "Hours of human review it adds",
+          "Loaded cost per hour and monthly running costs",
         ],
       },
       { type: "h2", text: "A worked example" },
       {
         type: "p",
-        text: "Ten people each saving five hours a week, at a loaded cost of $45 an hour, over 50 working weeks, comes to $112,500 a year in recovered capacity. Against a $25,000 program, that pays back in under three months.",
+        text: "Take a 20-hour-a-week task at $40 an hour. With a 50% time reduction and 80% adoption, it frees 8 hours. Added review takes 3 hours back, leaving 5 net hours, or $10,400 a year. Subtract $2,400 in running costs and the workflow nets $8,000 a year.",
       },
       { type: "h2", text: "Be conservative" },
       {
         type: "p",
-        text: "Use the low end of your time-savings estimate, and count only the tasks you are confident AI can handle with human review. If the conservative number still works, you have a strong case.",
+        text: "Use the low end of your time-savings estimate, and count only the tasks you are confident AI can handle with human review. Treat freed time as capacity, not cash, unless it removes overtime, a planned hire, or outside spend. If the conservative number still works, you have a strong case.",
       },
       {
         type: "callout",

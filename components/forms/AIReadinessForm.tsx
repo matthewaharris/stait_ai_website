@@ -23,7 +23,7 @@ type Answer = "yes" | "no" | null;
 function getTier(score: number) {
   if (score <= 3) return { tier: "Early Stage", rec: "ai-foundations-workshop", recName: "AI Foundations Workshop" };
   if (score <= 7) return { tier: "Emerging", rec: "ai-strategy-blueprint", recName: "AI Strategy Blueprint" };
-  return { tier: "AI-Ready", rec: "ai-transformation-program", recName: "AI Transformation Program" };
+  return { tier: "AI-Ready", rec: "ai-workflow-pilot", recName: "AI Workflow Pilot" };
 }
 
 export default function AIReadinessForm() {
