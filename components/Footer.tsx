@@ -1,59 +1,95 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import ContactModal from "@/components/ContactModal";
+import { Logo } from "@/components/Navbar";
+import { packages } from "@/lib/packages";
+import { site } from "@/lib/site";
+
+const company = [
+  { href: "/about", label: "About" },
+  { href: "/case-studies", label: "Case studies" },
+  { href: "/insights", label: "Insights" },
+  { href: "/ai-readiness", label: "AI readiness quiz" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Footer() {
-  const [contactOpen, setContactOpen] = useState(false);
-
   return (
-    <footer className="border-t border-neutral-200 bg-neutral-50">
-      <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3">
-            <Image src="/stait-logo.svg" alt="stait logo" width={86} height={64} className="h-8 w-auto" />
-            <div>
-              <div className="text-sm font-semibold text-neutral-900">stait.ai</div>
-              <div className="mt-1 text-xs text-neutral-600">Train • Plan • Build • Operate</div>
+    <footer className="relative overflow-hidden bg-navy text-white">
+      <div className="h-1 w-full bg-signature" />
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Logo />
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-haze">{site.tagline}</p>
+            <div className="mt-6 flex gap-4 font-mono text-xs uppercase tracking-[0.2em]">
+              <span className="text-haze">Learn</span>
+              <span className="text-haze">Plan</span>
+              <span className="text-haze">Build</span>
+              <span className="text-haze">Operate</span>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-600">
-            <Link href="/services" className="transition hover:text-neutral-900">
-              Services
-            </Link>
-            <span>•</span>
-            <Link href="/products" className="transition hover:text-neutral-900">
-              Products
-            </Link>
-            <span>•</span>
-            <Link href="/industries/accounting" className="transition hover:text-neutral-900">
-              Industries
-            </Link>
-            <span>•</span>
-            <Link href="/ai-readiness" className="transition hover:text-neutral-900">
-              AI Readiness
-            </Link>
-            <span>•</span>
-            <Link href="/about" className="transition hover:text-neutral-900">
-              About
-            </Link>
-            <span>•</span>
-            <button
-              onClick={() => setContactOpen(true)}
-              className="transition hover:text-neutral-900"
-            >
-              hello@stait.ai
-            </button>
+          <div className="md:col-span-3">
+            <div className="font-mono text-xs uppercase tracking-[0.2em] text-subtle">Services</div>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li>
+                <Link href="/seminar" className="text-mist transition hover:text-white">
+                  Owner seminar
+                </Link>
+              </li>
+              {packages.map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/services/${p.slug}`} className="text-mist transition hover:text-white">
+                    {p.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/products/quotemagic" className="text-mist transition hover:text-white">
+                  QuoteMagic
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/oacp" className="text-mist transition hover:text-white">
+                  OACP
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <div className="font-mono text-xs uppercase tracking-[0.2em] text-subtle">Company</div>
+            <ul className="mt-4 space-y-3 text-sm">
+              {company.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-mist transition hover:text-white">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <div className="font-mono text-xs uppercase tracking-[0.2em] text-subtle">Get in touch</div>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li>
+                <a href={`mailto:${site.email}`} className="text-mist transition hover:text-white">
+                  {site.email}
+                </a>
+              </li>
+              <li className="text-mist">{site.location}</li>
+              <li className="text-mist">Serving clients nationwide</li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-8 text-xs text-neutral-600">© {new Date().getFullYear()} stait.ai. All rights reserved.</div>
+        <div className="mt-14 flex flex-col gap-3 border-t border-navy-line pt-8 text-xs text-subtle sm:flex-row sm:justify-between">
+          <span>
+            © {new Date().getFullYear()} {site.legalName}. All rights reserved.
+          </span>
+          <span>stait.ai</span>
+        </div>
       </div>
-
-      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </footer>
   );
 }

@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import Button from "@/components/ui/Button";
+import { cn } from "@/lib/cn";
+import { track } from "@/lib/track";
 
 const questions = [
   "Are your workflows documented?",
@@ -20,131 +21,137 @@ const questions = [
 type Answer = "yes" | "no" | null;
 
 function getTier(score: number) {
-  if (score <= 3) return "Early Stage";
-  if (score <= 7) return "Emerging";
-  return "AI-Ready";
+  if (score <= 3) return { tier: "Early Stage", rec: "ai-foundations-workshop", recName: "AI Foundations Workshop" };
+  if (score <= 7) return { tier: "Emerging", rec: "ai-strategy-blueprint", recName: "AI Strategy Blueprint" };
+  return { tier: "AI-Ready", rec: "ai-workflow-pilot", recName: "AI Workflow Pilot" };
 }
 
 export default function AIReadinessForm() {
-  const [answers, setAnswers] = useState<Answer[]>(Array.from({ length: questions.length }, () => null));
+  const [answers, setAnswers] = useState<Answer[]>(() => questions.map(() => null));
   const [submitted, setSubmitted] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [leadCaptured, setLeadCaptured] = useState(false);
 
-  const complete = answers.every((answer) => answer !== null);
-  const score = useMemo(() => answers.filter((answer) => answer === "yes").length, [answers]);
-  const tier = getTier(score);
+  const answered = answers.filter((a) => a !== null).length;
+  const complete = answered === questions.length;
+  const score = useMemo(() => answers.filter((a) => a === "yes").length, [answers]);
+  const { tier, rec, recName } = getTier(score);
+
+  const set = (idx: number, v: Answer) =>
+    setAnswers((prev) => {
+      const next = [...prev];
+      next[idx] = v;
+      return next;
+    });
+
+  const input =
+    "w-full rounded-xl border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder:text-subtle focus:border-brand-purple focus:outline-none focus:ring-4 focus:ring-brand-purple/15";
 
   return (
-    <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="rounded-3xl border border-line bg-white p-6 shadow-[0_20px_50px_rgba(27,29,46,0.06)] sm:p-9">
+      <div className="mb-8">
+        <div className="flex justify-between font-mono text-xs uppercase tracking-[0.15em] text-subtle">
+          <span>Progress</span>
+          <span>
+            {answered}/{questions.length}
+          </span>
+        </div>
+        <div className="mt-3 h-2 overflow-hidden rounded-full bg-line">
+          <div className="h-full rounded-full bg-signature transition-all duration-500" style={{ width: `${(answered / questions.length) * 100}%` }} />
+        </div>
+      </div>
+
       <form
-        className="space-y-5"
-        onSubmit={(event) => {
-          event.preventDefault();
+        className="space-y-3"
+        onSubmit={(e) => {
+          e.preventDefault();
           setSubmitted(true);
         }}
       >
-        {questions.map((question, idx) => (
-          <fieldset key={question} className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-            <legend className="text-sm font-medium text-neutral-900">
-              {idx + 1}. {question}
-            </legend>
-            <div className="mt-3 flex items-center gap-5 text-sm text-neutral-700">
-              <label className="inline-flex items-center gap-2">
-                <input
-                  type="radio"
-                  name={`q-${idx}`}
-                  checked={answers[idx] === "yes"}
-                  onChange={() =>
-                    setAnswers((prev) => {
-                      const next = [...prev];
-                      next[idx] = "yes";
-                      return next;
-                    })
-                  }
-                />
-                Yes
-              </label>
-              <label className="inline-flex items-center gap-2">
-                <input
-                  type="radio"
-                  name={`q-${idx}`}
-                  checked={answers[idx] === "no"}
-                  onChange={() =>
-                    setAnswers((prev) => {
-                      const next = [...prev];
-                      next[idx] = "no";
-                      return next;
-                    })
-                  }
-                />
-                No
-              </label>
+        {questions.map((q, idx) => (
+          <fieldset key={q} className="flex flex-col gap-3 rounded-2xl border border-line bg-paper p-5 sm:flex-row sm:items-center sm:justify-between">
+            <legend className="sr-only">{q}</legend>
+            <span className="text-[17px] font-medium">
+              <span className="mr-3 font-mono text-sm text-subtle">{String(idx + 1).padStart(2, "0")}</span>
+              {q}
+            </span>
+            <div className="flex shrink-0 gap-2">
+              {(["yes", "no"] as const).map((v) => (
+                <label
+                  key={v}
+                  className={cn(
+                    "cursor-pointer rounded-full border px-5 py-2 text-sm font-semibold capitalize transition",
+                    answers[idx] === v
+                      ? v === "yes"
+                        ? "border-brand-purple bg-brand-purple text-white"
+                        : "border-ink bg-ink text-white"
+                      : "border-line bg-white text-muted hover:border-mist",
+                  )}
+                >
+                  <input type="radio" name={`q-${idx}`} className="sr-only" checked={answers[idx] === v} onChange={() => set(idx, v)} />
+                  {v}
+                </label>
+              ))}
             </div>
           </fieldset>
         ))}
 
-        <button type="submit" className="inline-flex">
-          <Button size="lg">Calculate readiness score</Button>
+        <button
+          type="submit"
+          className="mt-4 inline-flex rounded-full bg-[linear-gradient(90deg,#9b7bff,#ff5c7a,#ffa53d)] px-6 py-3.5 text-base font-semibold text-white [text-shadow:0_1px_2px_rgba(27,29,46,0.35)] shadow-[0_12px_30px_-12px_rgba(255,92,122,0.8)] transition hover:brightness-110"
+        >
+          Calculate my score
         </button>
       </form>
 
-      {submitted && !complete ? (
-        <p className="mt-5 text-sm text-amber-700">Please answer all 10 questions to calculate your score.</p>
-      ) : null}
+      {submitted && !complete && (
+        <p className="mt-5 text-sm text-[#c06d10]">Please answer all 10 questions to calculate your score.</p>
+      )}
 
-      {submitted && complete && !leadCaptured ? (
-        <div className="mt-6 rounded-2xl border border-indigo-200 bg-indigo-50 p-5">
-          <div className="text-lg font-semibold text-indigo-950">Your assessment is ready!</div>
-          <p className="mt-2 text-sm text-indigo-900/90">
-            Enter your name and email to see your score and personalized recommendations.
-          </p>
+      {submitted && complete && !leadCaptured && (
+        <div className="mt-8 rounded-2xl bg-navy p-7 text-white">
+          <div className="font-display text-2xl font-semibold">Your assessment is ready.</div>
+          <p className="mt-2 text-mist">Enter your name and email to see your score and recommended next step.</p>
           <form
-            className="mt-4 space-y-3"
-            onSubmit={(event) => {
-              event.preventDefault();
+            className="mt-5 grid gap-3 sm:grid-cols-[1fr_1fr_auto]"
+            onSubmit={(e) => {
+              e.preventDefault();
               // TODO: Send lead data (name, email, score, tier) to backend
+              track("readiness_lead", { score, tier });
               setLeadCaptured(true);
             }}
           >
-            <input
-              type="text"
-              required
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full rounded-xl border border-indigo-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-            />
-            <input
-              type="email"
-              required
-              placeholder="Work email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-xl border border-indigo-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-            />
-            <button type="submit" className="inline-flex">
-              <Button>See my results</Button>
+            <input required placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} className={input} />
+            <input type="email" required placeholder="Work email" value={email} onChange={(e) => setEmail(e.target.value)} className={input} />
+            <button type="submit" className="rounded-full bg-white px-6 py-3 font-semibold text-navy transition hover:bg-mist">
+              See my results
             </button>
           </form>
         </div>
-      ) : null}
+      )}
 
-      {submitted && complete && leadCaptured ? (
-        <div className="mt-6 rounded-2xl border border-indigo-200 bg-indigo-50 p-5">
-          <div className="text-sm font-semibold text-indigo-900">Your score: {score}/10</div>
-          <div className="mt-1 text-lg font-semibold text-indigo-950">Tier: {tier}</div>
-          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-            <Link href="/#contact">
-              <Button>Book a strategy call</Button>
-            </Link>
-            <Link href="/services">
-              <Button variant="secondary">Review services</Button>
-            </Link>
+      {submitted && complete && leadCaptured && (
+        <div className="mt-8 grid gap-6 rounded-2xl bg-navy p-7 text-white sm:grid-cols-[auto_1fr] sm:items-center">
+          <div className="text-center sm:pr-6">
+            <div className="text-white font-display text-7xl font-semibold leading-none">{score}</div>
+            <div className="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-haze">out of 10</div>
+          </div>
+          <div>
+            <div className="font-mono text-xs uppercase tracking-[0.2em] text-haze">Your tier</div>
+            <div className="mt-1 font-display text-3xl font-semibold">{tier}</div>
+            <p className="mt-2 text-mist">
+              Recommended next step: <span className="font-semibold text-white">{recName}</span>
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <Button href="/contact">Book a free call</Button>
+              <Button href={`/services/${rec}`} variant="outline-light">
+                See {recName.replace("AI ", "")}
+              </Button>
+            </div>
           </div>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }

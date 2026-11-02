@@ -1,83 +1,118 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Button from "@/components/ui/Button";
+import { nav } from "@/lib/site";
+import { track } from "@/lib/track";
+import { cn } from "@/lib/cn";
 
-const links = [
-  { href: "/services", label: "Services" },
-  { href: "/products", label: "Products" },
-  { href: "/industries/accounting", label: "Industries" },
-  { href: "/ai-readiness", label: "AI Readiness" },
-  { href: "/about", label: "About" },
-  { href: "/#contact", label: "Contact" },
-];
+export function Logo({ dark = true, className }: { dark?: boolean; className?: string }) {
+  return (
+    <span className={cn("inline-flex items-center gap-2.5", className)}>
+      <Image src="/brand/stait-mark.png" alt="" width={355} height={395} className="h-9 w-auto" priority />
+      <Image
+        src={dark ? "/brand/stait-word-white.png" : "/brand/stait-word-dark.png"}
+        alt="Stait AI"
+        width={360}
+        height={130}
+        className="h-6 w-auto"
+        priority
+      />
+    </span>
+  );
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Close the mobile menu on navigation.
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setOpen(false);
+  }
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    const raf = requestAnimationFrame(onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/90 backdrop-blur">
-      <div className="mx-auto max-w-6xl px-4 py-4">
-        {/* Mobile: grid so logo centers between hamburger and CTA */}
-        <div className="grid grid-cols-[auto_1fr_auto] items-center md:flex md:justify-between">
-          <button
-            type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex items-center justify-center rounded-lg p-1.5 text-neutral-700 transition hover:bg-neutral-100 md:hidden"
-            onClick={() => setOpen((prev) => !prev)}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b transition-colors",
+        scrolled ? "border-navy-line bg-navy/90 backdrop-blur-md" : "border-transparent bg-navy",
+      )}
+    >
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
+        <Link href="/" aria-label="Stait AI home">
+          <Logo />
+        </Link>
 
-          <Link
-            href="/"
-            className="group inline-flex items-center justify-center gap-3 font-semibold tracking-tight md:justify-start"
-            aria-label="stait.ai home"
-          >
-            <Image
-              src="/stait-logo.svg"
-              alt="stait logo"
-              width={165}
-              height={124}
-              className="h-12 w-auto md:h-14"
-              priority
-            />
-            <span className="hidden text-base font-semibold text-neutral-900 md:inline">stait.ai</span>
-          </Link>
-
-          <nav className="hidden items-center gap-6 md:flex">
-            {links.map((link) => (
-              <Link key={link.href} href={link.href} className="text-sm text-neutral-600 transition hover:text-neutral-900">
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <Link
-            href="/#contact"
-            className="rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-900 shadow-sm transition hover:bg-neutral-50"
-          >
-            Book a call
-          </Link>
-        </div>
-      </div>
-
-      {/* Mobile dropdown */}
-      {open && (
-        <nav className="border-t border-neutral-200/80 bg-white px-4 pb-4 pt-2 md:hidden">
-          <div className="flex flex-col gap-2">
-            {links.map((link) => (
+        <nav className="hidden items-center gap-8 md:flex">
+          {nav.map((link) => {
+            const active = pathname === link.href || pathname.startsWith(link.href + "/");
+            return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-900"
-                onClick={() => setOpen(false)}
+                className={cn(
+                  "relative text-sm font-medium transition",
+                  active ? "text-white" : "text-haze hover:text-white",
+                )}
+              >
+                {link.label}
+                {active && <span className="absolute -bottom-2 left-0 h-0.5 w-full rounded-full bg-signature" />}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <Button
+            href="/contact"
+            className="hidden sm:inline-flex"
+            onClick={() => track("cta_click", { location: "navbar", cta: "book_call" })}
+          >
+            Book a free call
+          </Button>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="inline-flex items-center justify-center rounded-lg p-2 text-white transition hover:bg-white/10 md:hidden"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      {open && (
+        <nav className="border-t border-navy-line bg-navy px-6 pb-6 pt-2 md:hidden">
+          <div className="flex flex-col">
+            {nav.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="border-b border-navy-line py-3 text-base text-white/90 transition hover:text-white"
               >
                 {link.label}
               </Link>
             ))}
+            <Button href="/contact" size="lg" className="mt-5">
+              Book a free call
+            </Button>
           </div>
         </nav>
       )}
